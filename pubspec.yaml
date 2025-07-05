@@ -1,11 +1,36 @@
 name: muvmnt_mobile_mono
-
-packages:
-  - apps/*
-  - packages/*
+publish_to: none
 
 environment: 
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: "^3.6.0"
 
-dev_dependencies:
-  melos: ^6.3.3
+workspace:
+  - packages/muvmnt_core
+  - packages/muvmnt_ui
+  - packages/muvmnt_features
+  - apps/shopper_app
+  - apps/vendor_app
+  - apps/muver_app
+
+dependencies:
+  melos: ^7.0.0-dev.8
+
+dev_dependencies: 
+  flutter_lints: 
+
+melos:
+  scripts:
+    analyze:
+      exec: dart analyze .
+    generate-run-config:
+      run: bash generate_app_run_config.sh
+    build:
+      run: dart run build_runner build --delete-conflicting-outputs
+      exec:
+        concurrency: 6
+      packageFilter:
+        dependsOn: build_runner
+
+  command:
+    bootstrap:
+      runPubGetInParallel: false
