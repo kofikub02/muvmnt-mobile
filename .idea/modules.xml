@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/packages/features/melos_features.iml" filepath="$PROJECT_DIR$/packages/features/melos_features.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/muver_app/melos_muver_app.iml" filepath="$PROJECT_DIR$/apps/muver_app/melos_muver_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/muvmnt_core/melos_muvmnt_core.iml" filepath="$PROJECT_DIR$/packages/muvmnt_core/melos_muvmnt_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/muvmnt_features/melos_muvmnt_features.iml" filepath="$PROJECT_DIR$/packages/muvmnt_features/melos_muvmnt_features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/muvmnt_ui/melos_muvmnt_ui.iml" filepath="$PROJECT_DIR$/packages/muvmnt_ui/melos_muvmnt_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/mvmnt_cli/melos_mvmnt_cli.iml" filepath="$PROJECT_DIR$/apps/mvmnt_cli/melos_mvmnt_cli.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/shopper_app/melos_shopper_app.iml" filepath="$PROJECT_DIR$/apps/shopper_app/melos_shopper_app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/ui/melos_ui.iml" filepath="$PROJECT_DIR$/packages/ui/melos_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/vendor_app/melos_vendor_app.iml" filepath="$PROJECT_DIR$/apps/vendor_app/melos_vendor_app.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_muvmnt_mobile_mono.iml" filepath="$PROJECT_DIR$/melos_muvmnt_mobile_mono.iml" />
     </modules>
