@@ -7,13 +7,13 @@ import 'package:mvmnt_cli/features/addresses/domain/entities/address_entity.dart
 import 'package:mvmnt_cli/features/addresses/domain/repository/saved_addresses_repository.dart';
 
 class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
-  final AddressLocalDataSource localDataSource;
-  final SavedAddressesRemoteDataSource remoteDataSource;
 
   SavedAddressesRepositoryImpl({
     required this.localDataSource,
     required this.remoteDataSource,
   });
+  final AddressLocalDataSource localDataSource;
+  final SavedAddressesRemoteDataSource remoteDataSource;
 
   @override
   Future<DataState<void>> addToAddressHistory(AddressEntity address) async {
@@ -21,11 +21,11 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
       final model = AddressModel.fromEntity(
         address.copyWith(updatedAt: DateTime.now()),
       );
-      return DataSuccess((await localDataSource.saveAddress(model)));
+      return DataSuccess(await localDataSource.saveAddress(model));
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -47,7 +47,7 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -77,7 +77,7 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -92,7 +92,7 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -107,7 +107,7 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -125,7 +125,7 @@ class SavedAddressesRepositoryImpl implements SavedAddressesRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );

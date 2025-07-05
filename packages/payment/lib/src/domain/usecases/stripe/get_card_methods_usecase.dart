@@ -3,9 +3,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/stripe_repository.dart';
 
 class GetCardMethodsUseCase {
-  final StripeRepository repository;
 
   GetCardMethodsUseCase(this.repository);
+  final StripeRepository repository;
 
   Future<DataState<List<PaymentMethodEntity>>> call() async {
     return repository.retrieveCardMethods();

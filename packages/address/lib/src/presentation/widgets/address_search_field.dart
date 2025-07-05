@@ -10,10 +10,10 @@ import 'package:mvmnt_cli/features/addresses/presentation/cubits/address_search/
 import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 
 class AddressSearchField extends StatefulWidget {
-  final bool enabled;
-  final FocusNode? focusNode;
 
   const AddressSearchField({super.key, this.enabled = true, this.focusNode});
+  final bool enabled;
+  final FocusNode? focusNode;
 
   @override
   State<AddressSearchField> createState() => _AddressSearchFieldState();
@@ -38,7 +38,7 @@ class _AddressSearchFieldState extends State<AddressSearchField> {
   Widget build(BuildContext context) {
     return BlocBuilder<LocationServiceCubit, LocationServiceState>(
       builder: (context, state) {
-        String? country =
+        final String? country =
             state.placemark != null
                 ? state.placemark!.isoCountryCode?.toLowerCase()
                 : '';

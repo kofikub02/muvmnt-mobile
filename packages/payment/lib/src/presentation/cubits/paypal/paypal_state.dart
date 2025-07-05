@@ -4,11 +4,6 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 enum PaypalStatus { initial, loading, settingUp, success, failure }
 
 class PaypalState extends Equatable {
-  final PaypalStatus status;
-  final String? errorMessage;
-  final String? setupTokenId;
-  final String? approvalUrl;
-  final List<PaymentMethodEntity> methods;
 
   const PaypalState({
     this.status = PaypalStatus.initial,
@@ -17,6 +12,11 @@ class PaypalState extends Equatable {
     this.approvalUrl,
     this.methods = const [],
   });
+  final PaypalStatus status;
+  final String? errorMessage;
+  final String? setupTokenId;
+  final String? approvalUrl;
+  final List<PaymentMethodEntity> methods;
 
   PaypalState copyWith({
     PaypalStatus? status,

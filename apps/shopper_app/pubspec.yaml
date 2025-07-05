@@ -1,5 +1,5 @@
 name: shopper_app
-description: Just another shopper app
+description: Just a unique shopper app
 version: 1.0.0+1
 publish_to: none
 resolution: workspace

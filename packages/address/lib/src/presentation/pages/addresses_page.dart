@@ -28,14 +28,13 @@ class _AddressesPageState extends State<AddressesPage> {
       appBar: CustomAppBar(title: 'Addresses'),
       body: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               child: GestureDetector(
                 onTap: () async {
-                  var selected = await context.push<AddressEntity?>(
+                  final selected = await context.push<AddressEntity?>(
                     '/addresses/search',
                     extra: 'Search Address',
                   );

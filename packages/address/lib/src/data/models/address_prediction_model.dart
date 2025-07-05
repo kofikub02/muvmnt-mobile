@@ -1,6 +1,14 @@
 import 'package:mvmnt_cli/features/addresses/domain/entities/address_prediction_entity.dart';
 
 class AddressPredictionModel extends AddressPredictionEntity {
+
+  factory AddressPredictionModel.fromEntity(AddressPredictionEntity entity) {
+    return AddressPredictionModel(
+      description: entity.description,
+      mainText: entity.mainText,
+      secondaryText: entity.secondaryText,
+    );
+  }
   const AddressPredictionModel({
     required super.description,
     required super.mainText,
@@ -24,14 +32,6 @@ class AddressPredictionModel extends AddressPredictionEntity {
         'secondary_text': secondaryText,
       },
     };
-  }
-
-  factory AddressPredictionModel.fromEntity(AddressPredictionEntity entity) {
-    return AddressPredictionModel(
-      description: entity.description,
-      mainText: entity.mainText,
-      secondaryText: entity.secondaryText,
-    );
   }
 
   AddressPredictionEntity toEntity() {

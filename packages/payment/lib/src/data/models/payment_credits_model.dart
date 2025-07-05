@@ -1,6 +1,10 @@
 import 'package:mvmnt_cli/features/payments/domain/entities/payment_credits_entity.dart';
 
 class PaymentCreditsModel extends PaymentCreditsEntity {
+
+  factory PaymentCreditsModel.fromEntity(PaymentCreditsEntity entity) {
+    return PaymentCreditsModel(credits: entity.credits);
+  }
   const PaymentCreditsModel({required super.credits});
 
   factory PaymentCreditsModel.fromJson(Map<String, dynamic> json) {
@@ -9,10 +13,6 @@ class PaymentCreditsModel extends PaymentCreditsEntity {
 
   Map<String, dynamic> toJson() {
     return {'credits': credits};
-  }
-
-  factory PaymentCreditsModel.fromEntity(PaymentCreditsEntity entity) {
-    return PaymentCreditsModel(credits: entity.credits);
   }
 
   PaymentCreditsEntity toEntity() {

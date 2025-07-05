@@ -2,9 +2,9 @@ import 'package:go_router/go_router.dart';
 import 'package:mvmnt_cli/services/navigation/navigation_service.dart';
 
 class NavigationServiceImpl implements NavigationService {
-  final GoRouter _goRouter;
 
   NavigationServiceImpl(this._goRouter);
+  final GoRouter _goRouter;
 
   @override
   Future<void> navigateToScreen(String route, {Object? arguments}) async {

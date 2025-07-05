@@ -23,12 +23,6 @@ var emptyWork = AddressEntity.empty().copyWith(
 );
 
 class SavedAddressesCubit extends Cubit<SavedAddressesState> {
-  final GetLabelledAddressesUsecase getLabelledAddressesUsecase;
-  final GetAddressHistoryUsecase getSavedAddressesUsecase;
-  final SaveAddressUsecase saveAddressUsecase;
-  final AddToAddressesHistoryUseCase addToAddressesHistoryUseCase;
-  final UpdateAddressUseCase updateAddressUseCase;
-  final DeleteAddressUseCase deleteSavedAddressUsecase;
 
   SavedAddressesCubit({
     required this.getLabelledAddressesUsecase,
@@ -40,6 +34,12 @@ class SavedAddressesCubit extends Cubit<SavedAddressesState> {
   }) : super(const SavedAddressesState()) {
     emit(state.copyWith(labelledAddresses: [emptyHome, emptyWork]));
   }
+  final GetLabelledAddressesUsecase getLabelledAddressesUsecase;
+  final GetAddressHistoryUsecase getSavedAddressesUsecase;
+  final SaveAddressUsecase saveAddressUsecase;
+  final AddToAddressesHistoryUseCase addToAddressesHistoryUseCase;
+  final UpdateAddressUseCase updateAddressUseCase;
+  final DeleteAddressUseCase deleteSavedAddressUsecase;
 
   Future<void> loadLabeledAddresses() async {
     emit(state.copyWith(status: SavedAddressesStatus.loadingLabeled));
@@ -166,7 +166,7 @@ class SavedAddressesCubit extends Cubit<SavedAddressesState> {
 
     final address = state.labelledAddresses.firstWhere(
       (a) => a.id == id,
-      orElse: () => AddressEntity.empty(),
+      orElse: AddressEntity.empty,
     );
 
     final updated = state.addresses.where((a) => a.id != id).toList();
@@ -181,7 +181,7 @@ class SavedAddressesCubit extends Cubit<SavedAddressesState> {
   }
 
   List<AddressEntity> _rearrangeLabelled(List<AddressEntity> labelled) {
-    List<AddressEntity> rearranged = [];
+    var rearranged = <AddressEntity>[];
 
     final homeAddress = labelled.firstWhere(
       (a) => a.label?.toLowerCase() == 'home',
@@ -201,8 +201,8 @@ class SavedAddressesCubit extends Cubit<SavedAddressesState> {
     rearranged.addAll(
       labelled.where(
         (a) =>
-            (a.label?.toLowerCase() != 'home' &&
-                a.label?.toLowerCase() != 'work'),
+            a.label?.toLowerCase() != 'home' &&
+                a.label?.toLowerCase() != 'work',
       ),
     );
 

@@ -13,10 +13,6 @@ enum SavedAddressesStatus {
 }
 
 class SavedAddressesState extends Equatable {
-  final SavedAddressesStatus status;
-  final List<AddressEntity> addresses;
-  final List<AddressEntity> labelledAddresses;
-  final String? errorMessage;
 
   const SavedAddressesState({
     this.status = SavedAddressesStatus.initial,
@@ -24,6 +20,10 @@ class SavedAddressesState extends Equatable {
     this.labelledAddresses = const [],
     this.errorMessage,
   });
+  final SavedAddressesStatus status;
+  final List<AddressEntity> addresses;
+  final List<AddressEntity> labelledAddresses;
+  final String? errorMessage;
 
   SavedAddressesState copyWith({
     SavedAddressesStatus? status,

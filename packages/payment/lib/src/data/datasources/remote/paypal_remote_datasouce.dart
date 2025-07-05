@@ -2,16 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:mvmnt_cli/features/payments/data/models/payment_method_model.dart';
 
 class PaypalRemoteDatasouce {
-  final Dio dio;
 
   PaypalRemoteDatasouce({required this.dio});
+  final Dio dio;
 
   Future<List<PaymentMethodModel>> getMethods() async {
-    var response = await dio.get('/payments/paypal/payment-methods');
+    final response = await dio.get('/payments/paypal/payment-methods');
 
     if (response.statusCode == 200) {
       final rawList = response.data['data'] as List;
-      final List<PaymentMethodModel> paymentMethods =
+      final paymentMethods =
           rawList
               .map(
                 (json) => PaymentMethodModel.fromJson({
@@ -30,7 +30,7 @@ class PaypalRemoteDatasouce {
   }
 
   Future<Map<String, dynamic>> createSetupToken() async {
-    var setupTokenResponse = await dio.post('/payments/paypal/setup-token');
+    final setupTokenResponse = await dio.post('/payments/paypal/setup-token');
 
     if (setupTokenResponse.statusCode == 200) {
       return setupTokenResponse.data['data'];
@@ -40,9 +40,9 @@ class PaypalRemoteDatasouce {
   }
 
   Future<PaymentMethodModel> createPaymentToken(String setupTokenId) async {
-    var response = await dio.post(
+    final response = await dio.post(
       '/payments/paypal/payment-token',
-      data: {"setupTokenId": setupTokenId},
+      data: {'setupTokenId': setupTokenId},
     );
 
     if (response.statusCode == 200) {
@@ -60,7 +60,7 @@ class PaypalRemoteDatasouce {
   }
 
   Future<void> removePaypalMethod(String methodId) async {
-    var response = await dio.delete(
+    final response = await dio.delete(
       '/payments/paypal/payment-methods/$methodId',
     );
 

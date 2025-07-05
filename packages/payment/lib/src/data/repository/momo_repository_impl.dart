@@ -2,7 +2,7 @@ import 'package:mvmnt_cli/features/payments/data/datasources/remote/momo_remote_
 import 'package:mvmnt_cli/features/payments/domain/repository/momo_repository.dart';
 
 class MomoRepositoryImpl extends MomoRepository {
-  final MomoRemoteDatasource remoteDatasouce;
 
   MomoRepositoryImpl({required this.remoteDatasouce});
+  final MomoRemoteDatasource remoteDatasouce;
 }

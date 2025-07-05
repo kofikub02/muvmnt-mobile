@@ -4,9 +4,9 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:mvmnt_cli/features/payments/data/models/payment_method_model.dart';
 
 class StripeRemoteDatasource {
-  final Dio dio;
 
   StripeRemoteDatasource({required this.dio});
+  final Dio dio;
 
   Future<Map<String, dynamic>> getConfig() async {
     final response = await dio.get('/payments/stripe/config');
@@ -20,7 +20,7 @@ class StripeRemoteDatasource {
   }
 
   Future<List<PaymentMethodModel>> retrieveCardMethods() async {
-    var response = await dio.get('/payments/stripe/payment-methods');
+    final response = await dio.get('/payments/stripe/payment-methods');
 
     if (response.statusCode == 200) {
       if (response.data != null && response.data['data'] != null) {
@@ -44,9 +44,9 @@ class StripeRemoteDatasource {
 
   Future<void> saveCardMethod() async {
     final response = await dio.get('/payments/stripe/setup-intent');
-    String setupIntentClientSecret = '';
+    var setupIntentClientSecret = '';
     if (response.statusCode == 200 && response.data != null) {
-      setupIntentClientSecret = response.data["data"]["secret"];
+      setupIntentClientSecret = response.data['data']['secret'];
     }
 
     if (setupIntentClientSecret.isEmpty) {
@@ -65,7 +65,7 @@ class StripeRemoteDatasource {
   }
 
   Future<void> removeCardMethod(String paymentId) async {
-    var response = await dio.delete(
+    final response = await dio.delete(
       '/payments/stripe/payment-methods/$paymentId',
     );
 

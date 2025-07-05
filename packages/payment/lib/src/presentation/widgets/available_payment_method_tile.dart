@@ -7,9 +7,9 @@ import 'package:mvmnt_cli/features/payments/presentation/cubits/methods/payment_
 import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 
 class AvailablePaymentMethodTile extends StatelessWidget {
-  final PaymentMethodEntity paymentMethod;
 
   const AvailablePaymentMethodTile({super.key, required this.paymentMethod});
+  final PaymentMethodEntity paymentMethod;
 
   @override
   Widget build(BuildContext context) {

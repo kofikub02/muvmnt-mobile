@@ -11,17 +11,14 @@ void handleNotificationNavigation(Map<String, dynamic> data) {
   switch (type) {
     case 'payments':
       router.navigateToScreen('/payments');
-      break;
     case 'orders':
       if (id != null) {
         router.navigateToScreen('/orders/$id');
       }
-      break;
     case 'profile':
       if (id != null) {
         router.navigateToScreen('/accounts/profile');
       }
-      break;
     default:
       // Handle unknown notification type
       print('Unknown notification type: $type');

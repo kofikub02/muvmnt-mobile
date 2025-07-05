@@ -7,12 +7,12 @@ import 'package:mvmnt_cli/features/notifications/domain/repository/notification_
 
 class NotificationPreferenceRepositoryImpl
     extends NotificationPreferenceRepository {
-  final NotificationPreferencesRemoteDataSource
-  notificationPreferencesRemoteDataSource;
 
   NotificationPreferenceRepositoryImpl({
     required this.notificationPreferencesRemoteDataSource,
   });
+  final NotificationPreferencesRemoteDataSource
+  notificationPreferencesRemoteDataSource;
 
   @override
   Future<DataState<List<NotificationPreferenceEntity>>> getPreferences() async {
@@ -23,14 +23,14 @@ class NotificationPreferenceRepositoryImpl
     } on DioException catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.message,
         ),
       );
     } catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );
@@ -52,14 +52,14 @@ class NotificationPreferenceRepositoryImpl
     } on DioException catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.message,
         ),
       );
     } catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );

@@ -4,9 +4,6 @@ import 'package:mvmnt_cli/features/notifications/domain/entities/notification_pr
 enum NotificationPreferenceStatus { initial, loading, updating, success, error }
 
 class NotificationPreferencesState extends Equatable {
-  final NotificationPreferenceStatus status;
-  final String? errorMessage;
-  final List<NotificationPreferenceEntity> notificationPreferencesEntity;
 
   const NotificationPreferencesState._({
     required this.status,
@@ -19,6 +16,9 @@ class NotificationPreferencesState extends Equatable {
         status: NotificationPreferenceStatus.initial,
         notificationPreferencesEntity: [],
       );
+  final NotificationPreferenceStatus status;
+  final String? errorMessage;
+  final List<NotificationPreferenceEntity> notificationPreferencesEntity;
 
   NotificationPreferencesState copyWith({
     NotificationPreferenceStatus? status,

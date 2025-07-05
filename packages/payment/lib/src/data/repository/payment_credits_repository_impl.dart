@@ -6,19 +6,19 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_credits_enti
 import 'package:mvmnt_cli/features/payments/domain/repository/payment_credits_repository.dart';
 
 class PaymentCreditsRepositoryImpl implements PaymentCreditsRepository {
-  final CreditsRemoteDataSource remoteDataSource;
 
   PaymentCreditsRepositoryImpl({required this.remoteDataSource});
+  final CreditsRemoteDataSource remoteDataSource;
 
   @override
   Future<DataState<PaymentCreditsEntity>> getCredits() async {
     try {
-      final PaymentCreditsModel model = await remoteDataSource.getCredits();
+      final model = await remoteDataSource.getCredits();
       return DataSuccess(model.toEntity());
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );

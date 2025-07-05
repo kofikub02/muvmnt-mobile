@@ -4,10 +4,10 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mvmnt_cli/features/notifications/data/datasource/local/notification_handler.dart';
 
 class LocalNotificationsService {
-  //Main plugin instance for handling notifications
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
   LocalNotificationsService({required this.flutterLocalNotificationsPlugin});
+  //Main plugin instance for handling notifications
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
   //Android-specific initialization settings using app launcher icon
   final _androidInitializationSettings = const AndroidInitializationSettings(
@@ -79,7 +79,7 @@ class LocalNotificationsService {
     String? payload,
   ) async {
     // Android-specific notification details
-    AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+    var androidDetails = AndroidNotificationDetails(
       _androidChannel.id,
       _androidChannel.name,
       channelDescription: _androidChannel.description,

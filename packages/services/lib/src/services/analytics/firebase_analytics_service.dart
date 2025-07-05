@@ -1,10 +1,10 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'analytics_service.dart';
+import 'package:services/src/services/analytics/analytics_service.dart';
 
 class FirebaseAnalyticsService implements AnalyticsService {
-  final FirebaseAnalytics analytics;
 
   FirebaseAnalyticsService({required this.analytics});
+  final FirebaseAnalytics analytics;
 
   @override
   Future<void> initialize() async {
@@ -94,7 +94,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
     String? currency,
     String? coupon,
   }) async {
-    final List<AnalyticsEventItem> analyticsItems =
+    final analyticsItems =
         items.map((item) {
           return AnalyticsEventItem(
             itemId: item['id'],
@@ -124,7 +124,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
     double? tax,
     String? locationId,
   }) async {
-    final List<AnalyticsEventItem> analyticsItems =
+    final analyticsItems =
         items.map((item) {
           return AnalyticsEventItem(
             itemId: item['id'],
@@ -135,7 +135,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
           );
         }).toList();
 
-    Map<String, Object> parameters = {'transaction_id': transactionId};
+    var parameters = <String, Object>{'transaction_id': transactionId};
 
     if (locationId != null) {
       parameters['location_id'] = locationId;
@@ -160,7 +160,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
     String? locationId,
     String? categoryId,
   }) async {
-    Map<String, Object> parameters = {};
+    var parameters = <String, Object>{};
 
     if (locationId != null) {
       parameters['location_id'] = locationId;
@@ -184,7 +184,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
     double? longitude,
   }) async {
     // Custom event for location selection
-    Map<String, Object> parameters = {
+    var parameters = <String, Object>{
       'location_id': locationId,
       'location_name': locationName,
     };
@@ -203,7 +203,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
     required String categoryName,
     String? locationId,
   }) async {
-    Map<String, Object> parameters = {};
+    var parameters = <String, Object>{};
 
     if (locationId != null) {
       parameters['location_id'] = locationId;

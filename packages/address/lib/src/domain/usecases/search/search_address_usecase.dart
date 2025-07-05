@@ -3,9 +3,9 @@ import 'package:mvmnt_cli/features/addresses/domain/entities/address_prediction_
 import 'package:mvmnt_cli/features/addresses/domain/repository/address_search_repository.dart';
 
 class SearchAddressUseCase {
-  final AddressSearchRepository repository;
 
   SearchAddressUseCase(this.repository);
+  final AddressSearchRepository repository;
 
   Future<DataState<List<AddressPredictionEntity>>> call(
     String query,

@@ -9,14 +9,14 @@ import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 import 'package:mvmnt_cli/ui/widgets/toggle_item.dart';
 
 class NotificationPreferenceTile extends StatelessWidget {
-  final int index;
-  final NotificationPreferenceEntity preference;
 
   const NotificationPreferenceTile({
     super.key,
     required this.index,
     required this.preference,
   });
+  final int index;
+  final NotificationPreferenceEntity preference;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class NotificationPreferenceTile extends StatelessWidget {
     required BuildContext context,
     required int index,
   }) {
-    String updatingChannelName = '';
+    var updatingChannelName = '';
     final notificationPreferencesCubit =
         context.read<NotificationPreferencesCubit>();
 
@@ -62,9 +62,9 @@ class NotificationPreferenceTile extends StatelessWidget {
                 NotificationPreferencesState
               >(
                 builder: (buildContext, subState) {
-                  bool isUpdating =
+                  final var isUpdating =
                       subState.status == NotificationPreferenceStatus.updating;
-                  var currentPreference =
+                  final currentPreference =
                       subState.notificationPreferencesEntity[index];
 
                   return ListView(
@@ -72,7 +72,7 @@ class NotificationPreferenceTile extends StatelessWidget {
                     children: [
                       SheetDash(),
                       Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 8,
                         ),
@@ -82,7 +82,7 @@ class NotificationPreferenceTile extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           vertical: 8,
                           horizontal: 20,
                         ),

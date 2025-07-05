@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:mvmnt_cli/services/error/crash_reporting_service.dart';
 
 class FirebaseCrashlyticsService implements CrashReportingService {
-  final FirebaseCrashlytics crashlytics;
 
   FirebaseCrashlyticsService({required this.crashlytics});
+  final FirebaseCrashlytics crashlytics;
 
   @override
   Future<void> initialize() async {

@@ -5,9 +5,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/payment_methods_repository.dart';
 
 class PaymentMethodsRepositoryImpl extends PaymentMethodsRepository {
-  final PaymentMethodsLocalDatasource localDatasource;
 
   PaymentMethodsRepositoryImpl({required this.localDatasource});
+  final PaymentMethodsLocalDatasource localDatasource;
 
   @override
   Future<DataState<List<PaymentMethodType>>> getActivePaymentMethods() async {
@@ -17,7 +17,7 @@ class PaymentMethodsRepositoryImpl extends PaymentMethodsRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -34,7 +34,7 @@ class PaymentMethodsRepositoryImpl extends PaymentMethodsRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -51,7 +51,7 @@ class PaymentMethodsRepositoryImpl extends PaymentMethodsRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );

@@ -4,19 +4,19 @@ import 'package:mvmnt_cli/features/location/domain/entities/geo_latlng_entity.da
 import 'package:mvmnt_cli/ui/map/map_screen.dart';
 
 class AdjustMapPin extends StatelessWidget {
-  final GeoLatLngEntity initialGeoPosition;
 
   const AdjustMapPin({super.key, required this.initialGeoPosition});
+  final GeoLatLngEntity initialGeoPosition;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
-        Text(
+        const SizedBox(height: 16),
+        const Text(
           'Where is the location entrance',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
         ),
         const SizedBox(height: 6),
         ClipRRect(
@@ -49,7 +49,7 @@ class AdjustMapPin extends StatelessWidget {
                       );
                       if (latlng != null) {}
                     },
-                    child: Text('Adjust pin'),
+                    child: const Text('Adjust pin'),
                   ),
                 ),
               ],

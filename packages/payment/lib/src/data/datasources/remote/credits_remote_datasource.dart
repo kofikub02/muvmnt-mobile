@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:mvmnt_cli/features/payments/data/models/payment_credits_model.dart';
 
 class CreditsRemoteDataSource {
-  final Dio dio;
 
   CreditsRemoteDataSource({required this.dio});
+  final Dio dio;
 
   Future<PaymentCreditsModel> getCredits() async {
     final response = await dio.get('/payments/wallet');

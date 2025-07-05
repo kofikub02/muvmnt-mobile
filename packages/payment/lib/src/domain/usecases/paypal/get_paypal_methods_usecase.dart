@@ -3,9 +3,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/paypal_repository.dart';
 
 class GetPaypalMethodsUseCase {
-  final PaypalRepository repository;
 
   GetPaypalMethodsUseCase(this.repository);
+  final PaypalRepository repository;
 
   Future<DataState<List<PaymentMethodEntity>>> call() async {
     return repository.getMethods();

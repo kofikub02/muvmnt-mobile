@@ -11,8 +11,8 @@ class AddressLocalDataSource {
     if (_box != null && _box!.isOpen) {
       await _box!.close();
     }
-    await Hive.openBox<AddressModel>("$uid$_boxName");
-    _box = Hive.box<AddressModel>("$uid$_boxName");
+    await Hive.openBox<AddressModel>('$uid$_boxName');
+    _box = Hive.box<AddressModel>('$uid$_boxName');
   }
 
   Box<AddressModel> get box {

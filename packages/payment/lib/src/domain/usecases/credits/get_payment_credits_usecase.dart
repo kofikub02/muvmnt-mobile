@@ -3,9 +3,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_credits_enti
 import 'package:mvmnt_cli/features/payments/domain/repository/payment_credits_repository.dart';
 
 class GetPaymentCreditsUseCase {
-  final PaymentCreditsRepository repository;
 
   GetPaymentCreditsUseCase(this.repository);
+  final PaymentCreditsRepository repository;
 
   Future<DataState<PaymentCreditsEntity>> call() {
     return repository.getCredits();

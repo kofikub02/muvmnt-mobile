@@ -4,9 +4,9 @@ import 'package:mvmnt_cli/features/notifications/data/datasource/local/messaging
 import 'package:mvmnt_cli/features/notifications/domain/repository/notification_service_repository.dart';
 
 class NotificationServiceRepositoryImpl extends NotificationServiceRepository {
-  final MessagingFirebaseService messagingFirebaseService;
 
   NotificationServiceRepositoryImpl({required this.messagingFirebaseService});
+  final MessagingFirebaseService messagingFirebaseService;
 
   @override
   Future<DataState<void>> initialize() async {
@@ -17,7 +17,7 @@ class NotificationServiceRepositoryImpl extends NotificationServiceRepository {
       print(e);
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );

@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:mvmnt_cli/features/addresses/data/models/address_model.dart';
 
 class SavedAddressesRemoteDataSource {
-  final Dio dio;
 
   SavedAddressesRemoteDataSource({required this.dio});
+  final Dio dio;
 
   Future<List<AddressModel>> getLabelledAddresses() async {
     final response = await dio.get('/addresses/saved');

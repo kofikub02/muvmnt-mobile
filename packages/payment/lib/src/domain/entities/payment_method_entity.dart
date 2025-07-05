@@ -11,11 +11,6 @@ enum PaymentMethodType {
 }
 
 class PaymentMethodEntity extends Equatable {
-  final String id;
-  final String name;
-  final String? meta;
-  final String icon;
-  final PaymentMethodType type;
 
   const PaymentMethodEntity({
     required this.id,
@@ -24,6 +19,11 @@ class PaymentMethodEntity extends Equatable {
     required this.icon,
     required this.type,
   });
+  final String id;
+  final String name;
+  final String? meta;
+  final String icon;
+  final PaymentMethodType type;
 
   @override
   List<Object?> get props => [id, name, meta, icon, type];

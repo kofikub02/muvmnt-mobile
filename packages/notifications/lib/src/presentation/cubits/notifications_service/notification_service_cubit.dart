@@ -4,10 +4,10 @@ import 'package:mvmnt_cli/features/notifications/domain/usecases/initialize_noti
 import 'package:mvmnt_cli/features/notifications/presentation/cubits/notifications_service/notification_service_state.dart';
 
 class NotificationServiceCubit extends Cubit<NotificationServiceState> {
-  final InitializeNotificationsUsecase initializeNotificationsUsecase;
 
   NotificationServiceCubit({required this.initializeNotificationsUsecase})
     : super(NotificationServiceInitial());
+  final InitializeNotificationsUsecase initializeNotificationsUsecase;
 
   Future requestNotificationPermission() async {
     emit(NotificationServiceLoading());

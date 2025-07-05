@@ -44,7 +44,7 @@ class _NotificationPreferencesViewState
         NotificationPreferencesState
       >(
         builder: (context, state) {
-          bool isLoading = state.status == NotificationPreferenceStatus.loading;
+          var isLoading = state.status == NotificationPreferenceStatus.loading;
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +52,7 @@ class _NotificationPreferencesViewState
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 6.0,
+                    horizontal: 6,
                   ), // Add some spacing at the top
                   child: ListView.builder(
                     itemCount:

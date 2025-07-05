@@ -4,11 +4,11 @@ import 'package:mvmnt_cli/core/storage/local_storage/user_local_storage.dart';
 import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entity.dart';
 
 class PaymentMethodsLocalDatasource {
+
+  PaymentMethodsLocalDatasource({required this.localStorage});
   static const _savedMethods = 'PAYMENT_METHODS';
 
   final UserLocalStorage localStorage;
-
-  PaymentMethodsLocalDatasource({required this.localStorage});
 
   Future<List<PaymentMethodType>> getSavedPaymentMethodTypes() async {
     final savedMethodsJson = localStorage.get(_savedMethods);

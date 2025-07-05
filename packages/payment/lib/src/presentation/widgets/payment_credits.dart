@@ -39,50 +39,50 @@ class __PaymentCreditsViewState extends State<_PaymentCreditsView> {
   Widget build(BuildContext context) {
     return BlocBuilder<LocationServiceCubit, LocationServiceState>(
       builder: (context, state) {
-        CurrencyEntity? currency = state.currency;
+        final var currency = state.currency;
 
         return BlocBuilder<PaymentCreditsCubit, PaymentCreditsState>(
           builder: (context, state) {
-            bool loading = state.status == PaymentCreditsStatus.loading;
+            final var loading = state.status == PaymentCreditsStatus.loading;
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Muvmnt Credits',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      if (loading) ...[CircularProgressIndicator.adaptive()],
+                      if (loading) ...[const CircularProgressIndicator.adaptive()],
                     ],
                   ),
                 ),
-                SizedBox(height: 4),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                const SizedBox(height: 4),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     'Credits will automatically apply to future orders.',
                     style: TextStyle(fontSize: 12),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 16.0, top: 10),
+                  padding: const EdgeInsets.only(left: 16, top: 10),
                   child: Text(
                     state.credits != null
                         ? '${currency?.symbol ?? ''}${state.credits?.credits.toStringAsFixed(2)} ${currency?.code ?? ''}'
                         : '${currency?.symbol ?? ''}0.00 ${currency?.code ?? ''}',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
                 ListTile(
-                  title: Text(
+                  title: const Text(
                     'Invite friends to earn credits',
                     style: TextStyle(fontSize: 12),
                   ),

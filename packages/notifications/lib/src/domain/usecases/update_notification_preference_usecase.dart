@@ -3,11 +3,11 @@ import 'package:mvmnt_cli/features/notifications/domain/entities/notification_pr
 import 'package:mvmnt_cli/features/notifications/domain/repository/notification_preference_repository.dart';
 
 class UpdateNotificationPreferenceUsecase {
-  final NotificationPreferenceRepository notificationPreferenceRepository;
 
   UpdateNotificationPreferenceUsecase({
     required this.notificationPreferenceRepository,
   });
+  final NotificationPreferenceRepository notificationPreferenceRepository;
 
   Future<DataState<NotificationPreferenceEntity>> call({
     String? id,

@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:mvmnt_cli/features/notifications/data/models/notification_preference_model.dart';
 
 class NotificationPreferencesRemoteDataSource {
-  final Dio dio;
 
   NotificationPreferencesRemoteDataSource({required this.dio});
+  final Dio dio;
 
   Future<List<NotificationPreferenceModel>> getPreferences() async {
-    var response = await dio.get('/notifications/preferences');
+    final response = await dio.get('/notifications/preferences');
 
     if (response.statusCode == 200) {
       if (response.data != null && response.data['data'] != null) {
@@ -28,7 +28,7 @@ class NotificationPreferencesRemoteDataSource {
     String preferenceId,
     NotificationPreferenceChannelModel channelSetting,
   ) async {
-    var response = await dio.patch(
+    final response = await dio.patch(
       '/notifications/preferences/$preferenceId',
       data: channelSetting.toJson(),
     );

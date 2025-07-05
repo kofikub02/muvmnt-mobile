@@ -8,13 +8,13 @@ import 'package:mvmnt_cli/features/location/domain/entities/geo_latlng_entity.da
 import 'package:mvmnt_cli/features/addresses/domain/repository/address_search_repository.dart';
 
 class AddressSearchRepositoryImpl extends AddressSearchRepository {
-  final AddressSearchRemoteDataSource addressRemoteDataSource;
-  final LocationService geoLocationDataSource;
 
   AddressSearchRepositoryImpl({
     required this.addressRemoteDataSource,
     required this.geoLocationDataSource,
   });
+  final AddressSearchRemoteDataSource addressRemoteDataSource;
+  final LocationService geoLocationDataSource;
 
   @override
   Future<DataState<GeoLatLngEntity>> getGeocodeForAddress(
@@ -29,7 +29,7 @@ class AddressSearchRepositoryImpl extends AddressSearchRepository {
     } catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );
@@ -49,7 +49,7 @@ class AddressSearchRepositoryImpl extends AddressSearchRepository {
     } catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );
@@ -70,7 +70,7 @@ class AddressSearchRepositoryImpl extends AddressSearchRepository {
     } catch (e) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: e.toString(),
         ),
       );

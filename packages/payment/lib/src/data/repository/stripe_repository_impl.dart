@@ -5,9 +5,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/stripe_repository.dart';
 
 class StripeRepositoryImpl extends StripeRepository {
-  final StripeRemoteDatasource remoteDatasouce;
 
   StripeRepositoryImpl({required this.remoteDatasouce});
+  final StripeRemoteDatasource remoteDatasouce;
 
   @override
   Future<DataState<List<PaymentMethodEntity>>> retrieveCardMethods() async {
@@ -17,7 +17,7 @@ class StripeRepositoryImpl extends StripeRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -31,7 +31,7 @@ class StripeRepositoryImpl extends StripeRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -47,7 +47,7 @@ class StripeRepositoryImpl extends StripeRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );

@@ -4,15 +4,15 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_credits_enti
 enum PaymentCreditsStatus { initial, loading, loaded, error }
 
 class PaymentCreditsState extends Equatable {
-  final PaymentCreditsStatus status;
-  final PaymentCreditsEntity? credits;
-  final String? errorMessage;
 
   const PaymentCreditsState({
     this.status = PaymentCreditsStatus.initial,
     this.credits,
     this.errorMessage,
   });
+  final PaymentCreditsStatus status;
+  final PaymentCreditsEntity? credits;
+  final String? errorMessage;
 
   PaymentCreditsState copyWith({
     PaymentCreditsStatus? status,

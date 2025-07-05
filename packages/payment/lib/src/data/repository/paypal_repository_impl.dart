@@ -5,9 +5,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/paypal_repository.dart';
 
 class PaypalRepositoryImpl extends PaypalRepository {
-  final PaypalRemoteDatasouce remoteDatasouce;
 
   PaypalRepositoryImpl({required this.remoteDatasouce});
+  final PaypalRemoteDatasouce remoteDatasouce;
 
   @override
   Future<DataState<List<PaymentMethodEntity>>> getMethods() async {
@@ -17,7 +17,7 @@ class PaypalRepositoryImpl extends PaypalRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -31,7 +31,7 @@ class PaypalRepositoryImpl extends PaypalRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -49,7 +49,7 @@ class PaypalRepositoryImpl extends PaypalRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );
@@ -63,7 +63,7 @@ class PaypalRepositoryImpl extends PaypalRepository {
     } catch (error) {
       return DataFailed(
         DioException(
-          requestOptions: RequestOptions(path: ''),
+          requestOptions: RequestOptions(),
           error: error.toString(),
         ),
       );

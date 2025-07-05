@@ -17,9 +17,9 @@ import 'package:mvmnt_cli/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 
 class EditAddressPage extends StatefulWidget {
-  final AddressEntity address;
 
   const EditAddressPage({super.key, required this.address});
+  final AddressEntity address;
 
   static const String route = '/${AddressesPage.route}/edit';
 
@@ -63,9 +63,9 @@ class _EditAddressPageState extends State<EditAddressPage> {
         }
       },
       builder: (context, state) {
-        bool isLoading = state.status == SavedAddressesStatus.loading;
-        bool isUpdating = state.status == SavedAddressesStatus.updating;
-        bool enableFields = (!isLoading && !isUpdating);
+        final var isLoading = state.status == SavedAddressesStatus.loading;
+        final var isUpdating = state.status == SavedAddressesStatus.updating;
+        final var enableFields = !isLoading && !isUpdating;
 
         return Scaffold(
           appBar: CustomAppBar(
@@ -73,7 +73,7 @@ class _EditAddressPageState extends State<EditAddressPage> {
             actions: [
               BlocBuilder<LocationServiceCubit, LocationServiceState>(
                 builder: (subContext, subState) {
-                  bool isSelected =
+                  final var isSelected =
                       subState.currentLocation != null &&
                       subState.currentLocation?.id == widget.address.id;
 
@@ -103,7 +103,7 @@ class _EditAddressPageState extends State<EditAddressPage> {
               height: 50,
               child: BlocBuilder<LocationServiceCubit, LocationServiceState>(
                 builder: (subContext, subState) {
-                  bool isSelected =
+                  final var isSelected =
                       subState.currentLocation != null &&
                       subState.currentLocation?.id == widget.address.id;
 
@@ -112,7 +112,7 @@ class _EditAddressPageState extends State<EditAddressPage> {
                         isUpdating
                             ? null
                             : () {
-                              var address = widget.address.copyWith(
+                              final address = widget.address.copyWith(
                                 icon:
                                     _labelController.text
                                                 .trim()
@@ -147,10 +147,10 @@ class _EditAddressPageState extends State<EditAddressPage> {
                             },
                     child:
                         isUpdating
-                            ? Center(
+                            ? const Center(
                               child: CircularProgressIndicator.adaptive(),
                             )
-                            : Text('Save Address'),
+                            : const Text('Save Address'),
                   );
                 },
               ),
@@ -159,13 +159,12 @@ class _EditAddressPageState extends State<EditAddressPage> {
 
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
                 children: [
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Column(
@@ -208,24 +207,22 @@ class _EditAddressPageState extends State<EditAddressPage> {
                       ),
                     ],
                   ),
-                  Divider(thickness: 0.1),
+                  const Divider(thickness: 0.1),
                   Row(
                     children: [
                       Flexible(
-                        flex: 1,
                         child: CustomTextField(
                           enabled: enableFields,
-                          label: "Apartment/Suite",
+                          label: 'Apartment/Suite',
                           hintText: 'e.g. Unit 999',
                           controller: _suiteController,
                         ),
                       ),
                       const SizedBox(width: 16),
                       Flexible(
-                        flex: 1,
                         child: CustomTextField(
                           enabled: enableFields,
-                          label: "Entry Code",
+                          label: 'Entry Code',
                           controller: _codeController,
                         ),
                       ),
@@ -233,8 +230,8 @@ class _EditAddressPageState extends State<EditAddressPage> {
                   ),
                   CustomTextField(
                     enabled: enableFields,
-                    label: "Building Name",
-                    hintText: "e.g. Stanbic Heights",
+                    label: 'Building Name',
+                    hintText: 'e.g. Stanbic Heights',
                     controller: _buildingNameController,
                   ),
                   AddressLabelField(
@@ -255,7 +252,7 @@ class _EditAddressPageState extends State<EditAddressPage> {
                     enabled: enableFields,
                     maxLines: 4,
                     hintText: 'e.g. Hand it to me/Leave at my door',
-                    label: "Dropoff Instructions",
+                    label: 'Dropoff Instructions',
                     controller: _instructionController,
                   ),
                   const SizedBox(height: 16),

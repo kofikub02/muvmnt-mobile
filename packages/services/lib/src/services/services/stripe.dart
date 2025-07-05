@@ -4,15 +4,15 @@ import 'package:mvmnt_cli/core/di/injection_container.dart';
 import 'package:mvmnt_cli/features/payments/data/datasources/remote/stripe_remote_datasource.dart';
 
 class StripeService {
-  final Dio dio;
 
   StripeService({required this.dio});
+  final Dio dio;
 
   Future<void> initialize() async {
     try {
-      Map<String, dynamic> config =
+      final Map<String, dynamic> config =
           await serviceLocator<StripeRemoteDatasource>().getConfig();
-      Stripe.publishableKey = config['pubKey']!;
+      Stripe.publishableKey = config['pubKey'];
       Stripe.merchantIdentifier = 'merchant.muvmnt.cli';
       await Stripe.instance.applySettings();
     } catch (error) {

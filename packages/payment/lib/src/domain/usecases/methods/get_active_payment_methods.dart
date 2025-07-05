@@ -3,9 +3,9 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 import 'package:mvmnt_cli/features/payments/domain/repository/payment_methods_repository.dart';
 
 class GetActivePaymentMethodTypesUseCase {
-  final PaymentMethodsRepository repository;
 
   GetActivePaymentMethodTypesUseCase(this.repository);
+  final PaymentMethodsRepository repository;
 
   Future<DataState<List<PaymentMethodType>>> call() {
     return repository.getActivePaymentMethods();

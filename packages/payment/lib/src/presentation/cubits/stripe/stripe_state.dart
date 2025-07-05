@@ -4,15 +4,15 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 enum StripeStatus { initial, loading, success, failure }
 
 class StripeState extends Equatable {
-  final StripeStatus status;
-  final String? errorMessage;
-  final List<PaymentMethodEntity> cards;
 
   const StripeState({
     this.status = StripeStatus.initial,
     this.errorMessage,
     this.cards = const [],
   });
+  final StripeStatus status;
+  final String? errorMessage;
+  final List<PaymentMethodEntity> cards;
 
   StripeState copyWith({
     StripeStatus? status,

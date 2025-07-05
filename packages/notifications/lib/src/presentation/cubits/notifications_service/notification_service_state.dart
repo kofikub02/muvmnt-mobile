@@ -14,9 +14,9 @@ class NotificationServiceLoading extends NotificationServiceState {}
 class NotificationServiceInitialized extends NotificationServiceState {}
 
 class NotificationServiceError extends NotificationServiceState {
-  final String message;
 
   const NotificationServiceError({required this.message});
+  final String message;
 
   @override
   List<Object?> get props => [message];

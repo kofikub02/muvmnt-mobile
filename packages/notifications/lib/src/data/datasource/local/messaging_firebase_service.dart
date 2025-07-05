@@ -11,7 +11,7 @@ import 'package:timezone/data/latest_all.dart';
 /// Handles messages when the app is fully terminated
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print('Background message received: ${message.data.toString()}');
+  print('Background message received: ${message.data}');
   final notificationData = message.notification;
   if (notificationData != null) {
     // Init local notifications service
@@ -26,15 +26,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 class MessagingFirebaseService {
-  final Dio dio;
-  final FirebaseMessaging firebaseMessaging;
-  final LocalNotificationsService localNotificationsService;
 
   MessagingFirebaseService({
     required this.localNotificationsService,
     required this.dio,
     required this.firebaseMessaging,
   });
+  final Dio dio;
+  final FirebaseMessaging firebaseMessaging;
+  final LocalNotificationsService localNotificationsService;
 
   /// Initialize Firebase Messaging and sets up all message listeners
   Future<void> init() async {
@@ -73,7 +73,7 @@ class MessagingFirebaseService {
     try {
       await dio.post(
         '/notifications/user-data',
-        data: {"device_token": token, "tenant": 'cli'},
+        data: {'device_token': token, 'tenant': 'cli'},
       );
       print('FCM token registered: $token');
     } catch (e) {
@@ -120,8 +120,8 @@ class MessagingFirebaseService {
 
   /// Handles messages received while the app is in the foreground
   void _onForegroundMessage(RemoteMessage message) {
-    RemoteNotification? notificationData = message.notification;
-    AndroidNotification? android = message.notification?.android;
+    var notificationData = message.notification;
+    var android = message.notification?.android;
     if (notificationData != null && android != null) {
       // Display a local notification using the service
       localNotificationsService.showNotification(
@@ -135,7 +135,7 @@ class MessagingFirebaseService {
 
   /// Handles notification taps when app is opened from the background or terminated state
   void _onMessageOpenedApp(RemoteMessage message) {
-    print('Notification caused the app to open: ${message.data.toString()}');
+    print('Notification caused the app to open: ${message.data}');
     // TODO: Add navigation or specific handling based on message data
     handleNotificationNavigation(message.data);
   }

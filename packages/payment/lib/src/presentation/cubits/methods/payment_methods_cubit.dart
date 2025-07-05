@@ -9,15 +9,15 @@ import 'package:mvmnt_cli/features/payments/domain/usecases/methods/save_payment
 import 'package:mvmnt_cli/features/payments/presentation/cubits/methods/payment_methods_state.dart';
 
 class PaymentMethodsCubit extends Cubit<PaymentMethodsState> {
-  final GetActivePaymentMethodTypesUseCase getActivePaymentMethodTypesUseCase;
-  final SavePaymentMethodTypeUseCase savePaymentMethodTypeUseCase;
-  final RemovePaymentMethodTypeUseCase removePaymentMethodTypeUseCase;
 
   PaymentMethodsCubit({
     required this.getActivePaymentMethodTypesUseCase,
     required this.savePaymentMethodTypeUseCase,
     required this.removePaymentMethodTypeUseCase,
   }) : super(const PaymentMethodsState());
+  final GetActivePaymentMethodTypesUseCase getActivePaymentMethodTypesUseCase;
+  final SavePaymentMethodTypeUseCase savePaymentMethodTypeUseCase;
+  final RemovePaymentMethodTypeUseCase removePaymentMethodTypeUseCase;
 
   Future<void> loadLocalMethods() async {
     emit(state.copyWith(status: PaymentMethodsStatus.loading));

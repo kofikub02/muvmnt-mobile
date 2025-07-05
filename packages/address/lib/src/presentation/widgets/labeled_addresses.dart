@@ -48,20 +48,20 @@ class _LabeledAddressesState extends State<LabeledAddresses> {
                     child: TextButton.icon(
                       onPressed: _createNewLabelled,
                       icon: SvgIcon(name: 'plus'),
-                      label: Text('Add label', style: TextStyle(fontSize: 12)),
+                      label: const Text('Add label', style: TextStyle(fontSize: 12)),
                     ),
                   );
                 }
 
-                var address = state.labelledAddresses[index];
+                final address = state.labelledAddresses[index];
                 return _LabelledAddressCard(
                   key: Key(address.id),
                   address: address,
                 );
               },
               separatorBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                return const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8),
                   child: VerticalDivider(thickness: 0.5, color: Colors.grey),
                 );
               },
@@ -74,7 +74,7 @@ class _LabeledAddressesState extends State<LabeledAddresses> {
 
   Future<void> _createNewLabelled() async {
     // Shouldnt be popped
-    var selectedAddress = await context.push<AddressEntity?>(
+    final selectedAddress = await context.push<AddressEntity?>(
       '/addresses/search',
       extra: 'Choose Address for Label',
     );
@@ -86,9 +86,9 @@ class _LabeledAddressesState extends State<LabeledAddresses> {
 }
 
 class _LabelledAddressCard extends StatefulWidget {
-  final AddressEntity address;
 
   const _LabelledAddressCard({super.key, required this.address});
+  final AddressEntity address;
 
   @override
   State<_LabelledAddressCard> createState() => _LabelledAddressCardState();
@@ -104,8 +104,6 @@ class _LabelledAddressCardState extends State<_LabelledAddressCard> {
         onLongPress: _onLabelAddressCardLongPressed,
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -122,7 +120,7 @@ class _LabelledAddressCardState extends State<_LabelledAddressCard> {
               children: [
                 Text(
                   widget.address.label?.toCapitalized ?? '',
-                  style: TextStyle(fontWeight: FontWeight.w700, height: 1),
+                  style: const TextStyle(fontWeight: FontWeight.w700, height: 1),
                 ),
                 SizedBox(
                   width: 90,
@@ -130,7 +128,7 @@ class _LabelledAddressCardState extends State<_LabelledAddressCard> {
                     widget.address.description,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ),
               ],

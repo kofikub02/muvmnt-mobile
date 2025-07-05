@@ -4,10 +4,10 @@ import 'package:mvmnt_cli/features/payments/domain/usecases/credits/get_payment_
 import 'package:mvmnt_cli/features/payments/presentation/cubits/credits/payment_credits_state.dart';
 
 class PaymentCreditsCubit extends Cubit<PaymentCreditsState> {
-  final GetPaymentCreditsUseCase getPaymentCreditsUseCase;
 
   PaymentCreditsCubit({required this.getPaymentCreditsUseCase})
     : super(const PaymentCreditsState());
+  final GetPaymentCreditsUseCase getPaymentCreditsUseCase;
 
   Future<void> fetchCredits() async {
     emit(state.copyWith(status: PaymentCreditsStatus.loading));

@@ -12,14 +12,14 @@ import 'package:mvmnt_cli/ui/widgets/custom_dismissible.dart';
 import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 
 class SavedAddressesList extends StatefulWidget {
-  final bool canEdit;
-  final Function(AddressEntity)? onSelect;
 
   const SavedAddressesList({
     super.key,
     required this.onSelect,
     required this.canEdit,
   });
+  final bool canEdit;
+  final Function(AddressEntity)? onSelect;
 
   @override
   State<SavedAddressesList> createState() => _SavedAddressesListState();
@@ -49,8 +49,8 @@ class _SavedAddressesListState extends State<SavedAddressesList> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 16,
                         ),
@@ -64,7 +64,7 @@ class _SavedAddressesListState extends State<SavedAddressesList> {
                       ),
 
                       ...state.addresses.map((address) {
-                        bool isSelected =
+                        final var isSelected =
                             subState.currentLocation != null &&
                             subState.currentLocation?.id == address.id;
                         return CustomDismissible(

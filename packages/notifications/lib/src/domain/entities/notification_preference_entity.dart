@@ -3,23 +3,23 @@ import 'package:equatable/equatable.dart';
 enum NotificationChannel { email, push, sms }
 
 class NotificationPreferenceTopicEntity {
-  final String name;
-  final String description;
 
   const NotificationPreferenceTopicEntity({
     required this.name,
     required this.description,
   });
+  final String name;
+  final String description;
 }
 
 class NotificationPreferenceChannelEntity {
-  final NotificationChannel type;
-  final bool status;
 
   const NotificationPreferenceChannelEntity({
     required this.type,
     required this.status,
   });
+  final NotificationChannel type;
+  final bool status;
 
   /// Create a copy with updated fields
   NotificationPreferenceChannelEntity copyWith({
@@ -34,10 +34,6 @@ class NotificationPreferenceChannelEntity {
 }
 
 class NotificationPreferenceEntity extends Equatable {
-  final String id;
-  final NotificationPreferenceTopicEntity topic;
-  final List<NotificationPreferenceChannelEntity> channels;
-  final DateTime updatedAt;
 
   const NotificationPreferenceEntity({
     required this.id,
@@ -45,6 +41,10 @@ class NotificationPreferenceEntity extends Equatable {
     required this.channels,
     required this.updatedAt,
   });
+  final String id;
+  final NotificationPreferenceTopicEntity topic;
+  final List<NotificationPreferenceChannelEntity> channels;
+  final DateTime updatedAt;
 
   /// Create a copy with updated fields
   NotificationPreferenceEntity copyWith({

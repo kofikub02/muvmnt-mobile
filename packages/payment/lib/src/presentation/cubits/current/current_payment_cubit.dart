@@ -6,13 +6,13 @@ import 'package:mvmnt_cli/features/payments/domain/usecases/current/set_default_
 import 'package:mvmnt_cli/features/payments/presentation/cubits/current/current_payment_state.dart';
 
 class CurrentPaymentCubit extends Cubit<CurrentPaymentState> {
-  final GetDefaultPaymentMethodUseCase getDefaultPaymentMethodUseCase;
-  final SetDefaultPaymentMethodUseCase setDefaultPaymentMethodUseCase;
 
   CurrentPaymentCubit({
     required this.setDefaultPaymentMethodUseCase,
     required this.getDefaultPaymentMethodUseCase,
   }) : super(const CurrentPaymentState());
+  final GetDefaultPaymentMethodUseCase getDefaultPaymentMethodUseCase;
+  final SetDefaultPaymentMethodUseCase setDefaultPaymentMethodUseCase;
 
   Future<void> getDefaultPaymentMethod() async {
     emit(state.copyWith(status: CurrentPaymentStatus.loading));

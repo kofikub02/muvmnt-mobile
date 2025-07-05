@@ -16,18 +16,17 @@ class MobileMoneyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: SvgIcon(name: 'smartphone'),
-      title: Text('Mobile Money'),
+      title: const Text('Mobile Money'),
       trailing: SvgIcon(name: 'chevron-right'),
       onTap: () async {
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
-          isDismissible: true,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
           ),
           builder:
-              (context) => _AddMobileMoneySheetContent(
+              (context) => const _AddMobileMoneySheetContent(
                 key: Key('_add_mobile_money_sheet'),
               ),
         );
@@ -48,7 +47,7 @@ class _AddMobileMoneySheetContentState
     extends State<_AddMobileMoneySheetContent> {
   late final TextEditingController _phoneNumberController;
   String _selectedNetwork = 'mtn';
-  String _selectedCountryCode = "+233";
+  String _selectedCountryCode = '+233';
 
   @override
   void initState() {
@@ -99,7 +98,7 @@ class _AddMobileMoneySheetContentState
         }
       },
       builder: (context, state) {
-        bool isUpdating = state.status == PaymentMethodsStatus.loading;
+        final var isUpdating = state.status == PaymentMethodsStatus.loading;
 
         return Padding(
           padding: EdgeInsets.only(
@@ -111,11 +110,11 @@ class _AddMobileMoneySheetContentState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Add mobile money',
                         style: TextStyle(
                           fontSize: 18,
@@ -127,21 +126,19 @@ class _AddMobileMoneySheetContentState
                           Navigator.pop(context);
                         },
                         child: Padding(
-                          padding: EdgeInsetsGeometry.symmetric(horizontal: 8),
+                          padding: const EdgeInsetsGeometry.symmetric(horizontal: 8),
                           child: SvgIcon(name: 'x'),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Flexible(
-                        flex: 1,
                         child: CustomDropdown(
                           enabled: !isUpdating,
-                          label: "Network Provider",
+                          label: 'Network Provider',
                           options: mobileMoneyNetworks,
                           onChanged: _onNetworkChanged,
                           selectedOption: _selectedNetwork,
@@ -155,14 +152,14 @@ class _AddMobileMoneySheetContentState
                     phoneNumberController: _phoneNumberController,
                     onCountryChanged: _onCountryCodeChanged,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
                     child: Text(
                       'By providing your mobile money information, you allow Muvmnt to charge your wallet for future payments in accordance with their terms.',
                       style: TextStyle(fontSize: 10),
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: SizedBox(
@@ -172,8 +169,8 @@ class _AddMobileMoneySheetContentState
                         onPressed: isUpdating ? null : _onSave,
                         child:
                             isUpdating
-                                ? CircularProgressIndicator.adaptive()
-                                : Text('Save'),
+                                ? const CircularProgressIndicator.adaptive()
+                                : const Text('Save'),
                       ),
                     ),
                   ),

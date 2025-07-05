@@ -11,11 +11,6 @@ enum PaymentMethodsStatus {
 }
 
 class PaymentMethodsState extends Equatable {
-  final PaymentMethodsStatus status;
-  final String? selectedMethodId;
-  final List<PaymentMethodEntity> activeMethodTypes;
-  final List<PaymentMethodEntity> availableMethodTypes;
-  final String? errorMessage;
 
   const PaymentMethodsState({
     this.status = PaymentMethodsStatus.initial,
@@ -24,6 +19,11 @@ class PaymentMethodsState extends Equatable {
     this.availableMethodTypes = const [],
     this.errorMessage,
   });
+  final PaymentMethodsStatus status;
+  final String? selectedMethodId;
+  final List<PaymentMethodEntity> activeMethodTypes;
+  final List<PaymentMethodEntity> availableMethodTypes;
+  final String? errorMessage;
 
   PaymentMethodsState copyWith({
     PaymentMethodsStatus? status,

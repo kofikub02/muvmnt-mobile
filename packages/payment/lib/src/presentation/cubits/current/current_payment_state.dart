@@ -4,15 +4,15 @@ import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entit
 enum CurrentPaymentStatus { initial, loading, success, failure }
 
 class CurrentPaymentState extends Equatable {
-  final CurrentPaymentStatus status;
-  final PaymentMethodEntity? currentMethod;
-  final String? errorMessage;
 
   const CurrentPaymentState({
     this.status = CurrentPaymentStatus.initial,
     this.currentMethod,
     this.errorMessage,
   });
+  final CurrentPaymentStatus status;
+  final PaymentMethodEntity? currentMethod;
+  final String? errorMessage;
 
   CurrentPaymentState copyWith({
     CurrentPaymentStatus? status,
@@ -21,7 +21,7 @@ class CurrentPaymentState extends Equatable {
   }) {
     return CurrentPaymentState(
       status: status ?? this.status,
-      currentMethod: selectedMethodId ?? this.currentMethod,
+      currentMethod: selectedMethodId ?? currentMethod,
       errorMessage: errorMessage,
     );
   }

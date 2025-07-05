@@ -5,9 +5,9 @@ import 'package:mvmnt_cli/ui/widgets/custom_app_bar.dart';
 import 'package:mvmnt_cli/ui/widgets/custom_bottom_navigation_bar.dart';
 
 class AddressPinPage extends StatefulWidget {
-  final GeoLatLngEntity latlng;
 
   const AddressPinPage({super.key, required this.latlng});
+  final GeoLatLngEntity latlng;
 
   @override
   State<AddressPinPage> createState() => _AddressPinPageState();
@@ -22,7 +22,7 @@ class _AddressPinPageState extends State<AddressPinPage> {
         child: SizedBox(
           width: double.infinity,
           height: 50,
-          child: ElevatedButton(onPressed: () {}, child: Text('Save')),
+          child: ElevatedButton(onPressed: () {}, child: const Text('Save')),
         ),
       ),
       body: Stack(
@@ -33,7 +33,7 @@ class _AddressPinPageState extends State<AddressPinPage> {
               onPressed: () {
                 Navigator.of(context).pop({'lat': 0, 'lng': 0});
               },
-              child: Text('Adjust'),
+              child: const Text('Adjust'),
             ),
           ),
         ],

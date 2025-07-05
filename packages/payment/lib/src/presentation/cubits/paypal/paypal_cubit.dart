@@ -7,10 +7,6 @@ import 'package:mvmnt_cli/features/payments/domain/usecases/paypal/setup_paypal_
 import 'package:mvmnt_cli/features/payments/presentation/cubits/paypal/paypal_state.dart';
 
 class PaypalCubit extends Cubit<PaypalState> {
-  final GetPaypalMethodsUseCase getPaypalMethodsUseCase;
-  final SetupPaypalTokenUseCase setupPaypalMethodUseCase;
-  final CreatePaypalPaymentTokenUseCase createPaypalPaymentTokenUseCase;
-  final RemovePaypalPaymentMethodUseCase removePaypalPaymentMethodUseCase;
 
   PaypalCubit({
     required this.getPaypalMethodsUseCase,
@@ -18,6 +14,10 @@ class PaypalCubit extends Cubit<PaypalState> {
     required this.createPaypalPaymentTokenUseCase,
     required this.removePaypalPaymentMethodUseCase,
   }) : super(const PaypalState());
+  final GetPaypalMethodsUseCase getPaypalMethodsUseCase;
+  final SetupPaypalTokenUseCase setupPaypalMethodUseCase;
+  final CreatePaypalPaymentTokenUseCase createPaypalPaymentTokenUseCase;
+  final RemovePaypalPaymentMethodUseCase removePaypalPaymentMethodUseCase;
 
   Future<void> retrievePaypalMethods() async {
     emit(state.copyWith(status: PaypalStatus.loading));
@@ -49,10 +49,10 @@ class PaypalCubit extends Cubit<PaypalState> {
         return;
       }
 
-      var setupTokenData = result.data;
+      final setupTokenData = result.data;
 
-      String? tokenId = setupTokenData!['tokenId'];
-      String? approvalUrl = setupTokenData['approvalUrl'];
+      final String? tokenId = setupTokenData!['tokenId'];
+      final String? approvalUrl = setupTokenData['approvalUrl'];
 
       emit(
         state.copyWith(
@@ -76,7 +76,7 @@ class PaypalCubit extends Cubit<PaypalState> {
     final result = await createPaypalPaymentTokenUseCase(tokenId);
 
     if (result is DataSuccess) {
-      final updated = [...state.methods, result.data!];
+      final updated = [...state.methods, result.data];
       emit(state.copyWith(status: PaypalStatus.success, methods: updated));
     } else {
       emit(

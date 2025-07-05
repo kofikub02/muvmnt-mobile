@@ -9,18 +9,18 @@ import 'package:mvmnt_cli/features/addresses/domain/usecases/search/search_addre
 import 'package:mvmnt_cli/features/addresses/presentation/cubits/address_search/address_search_state.dart';
 
 class AddressSearchCubit extends Cubit<AddressSearchState> {
-  static const _debounceDuration = Duration(milliseconds: 300);
-
-  final SearchAddressUseCase searchAddressUseCase;
-  final GetGeocodeFromAddressUseCase getGeocodeFromAddressUsecase;
-  final GetAddressFromGeocodeUsecase getAddressFromGeocodeUsecase;
-  Timer? _debounce;
 
   AddressSearchCubit({
     required this.searchAddressUseCase,
     required this.getGeocodeFromAddressUsecase,
     required this.getAddressFromGeocodeUsecase,
   }) : super(const AddressSearchState());
+  static const _debounceDuration = Duration(milliseconds: 300);
+
+  final SearchAddressUseCase searchAddressUseCase;
+  final GetGeocodeFromAddressUseCase getGeocodeFromAddressUsecase;
+  final GetAddressFromGeocodeUsecase getAddressFromGeocodeUsecase;
+  Timer? _debounce;
 
   void clear() {
     emit(state.copyWith(query: '', addressSuggestions: []));
@@ -88,9 +88,9 @@ class AddressSearchCubit extends Cubit<AddressSearchState> {
         return;
       }
 
-      var selectedSuggestionGeocode = result.data;
+      final selectedSuggestionGeocode = result.data;
 
-      var newAddress = AddressEntity.empty().copyWith(
+      final newAddress = AddressEntity.empty().copyWith(
         description: selectedSuggestedAddress.description,
         mainText: selectedSuggestedAddress.mainText,
         secondaryText: selectedSuggestedAddress.secondaryText,

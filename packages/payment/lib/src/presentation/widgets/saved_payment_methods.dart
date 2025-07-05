@@ -13,9 +13,9 @@ import 'package:mvmnt_cli/ui/widgets/custom_dismissible.dart';
 import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 
 class SavedPaymentMethods extends StatefulWidget {
-  final String? currentPaymentMethodId;
 
   const SavedPaymentMethods({super.key, required this.currentPaymentMethodId});
+  final String? currentPaymentMethodId;
 
   @override
   State<SavedPaymentMethods> createState() => _SavedPaymentMethodsState();
@@ -35,7 +35,7 @@ class _SavedPaymentMethodsState extends State<SavedPaymentMethods> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Text(
             'Saved Payment Methods',
@@ -98,7 +98,7 @@ class _SavedPaymentMethodsState extends State<SavedPaymentMethods> {
             );
           },
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Divider(thickness: 0.2),
         ),
@@ -108,9 +108,6 @@ class _SavedPaymentMethodsState extends State<SavedPaymentMethods> {
 }
 
 class _SavedPaymentMethodTile extends StatelessWidget {
-  final PaymentMethodEntity paymentMethod;
-  final Function onRemove;
-  final bool isDefault;
 
   const _SavedPaymentMethodTile({
     super.key,
@@ -118,22 +115,23 @@ class _SavedPaymentMethodTile extends StatelessWidget {
     required this.isDefault,
     required this.onRemove,
   });
+  final PaymentMethodEntity paymentMethod;
+  final Function onRemove;
+  final bool isDefault;
 
   @override
   Widget build(BuildContext context) {
     return CustomDismissible(
       id: paymentMethod.id,
       isDismissible: isDefault,
-      onDismissed: () {
-        onRemove();
-      },
+      onDismissed: onRemove,
       child: ListTile(
         leading: SvgIcon(name: paymentMethod.icon, hasIntrinsic: true),
         title: Text(paymentMethod.name.toCapitalized),
         subtitle:
             paymentMethod.meta == null || paymentMethod.meta!.isEmpty
                 ? null
-                : Text(paymentMethod.meta!, style: TextStyle(fontSize: 12)),
+                : Text(paymentMethod.meta!, style: const TextStyle(fontSize: 12)),
         trailing: isDefault ? SvgIcon(name: 'check') : null,
         onTap: () {
           context.read<CurrentPaymentCubit>().setDefaultPaymentMethod(

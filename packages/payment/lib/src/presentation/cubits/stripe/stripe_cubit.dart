@@ -6,15 +6,15 @@ import 'package:mvmnt_cli/features/payments/domain/usecases/stripe/save_card_met
 import 'package:mvmnt_cli/features/payments/presentation/cubits/stripe/stripe_state.dart';
 
 class StripeCubit extends Cubit<StripeState> {
-  final SaveCardMethodUseCase saveCardMethodUseCase;
-  final GetCardMethodsUseCase getCardMethodsUseCase;
-  final RemoveCardMethodUseCase removeCardMethodUseCase;
 
   StripeCubit({
     required this.saveCardMethodUseCase,
     required this.getCardMethodsUseCase,
     required this.removeCardMethodUseCase,
   }) : super(const StripeState());
+  final SaveCardMethodUseCase saveCardMethodUseCase;
+  final GetCardMethodsUseCase getCardMethodsUseCase;
+  final RemoveCardMethodUseCase removeCardMethodUseCase;
 
   Future<void> loadCardMethods() async {
     emit(state.copyWith(status: StripeStatus.loading));

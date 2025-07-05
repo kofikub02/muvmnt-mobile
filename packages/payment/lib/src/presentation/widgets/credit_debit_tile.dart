@@ -11,11 +11,11 @@ class CreditDebitTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StripeCubit, StripeState>(
       builder: (context, state) {
-        bool loading = state.status == StripeStatus.loading;
+        var loading = state.status == StripeStatus.loading;
 
         return ListTile(
           leading: SvgIcon(name: 'credit-card'),
-          title: Text('Credit/Debit Card'),
+          title: const Text('Credit/Debit Card'),
           trailing: SvgIcon(name: 'chevron-right'),
           onTap:
               loading

@@ -7,9 +7,9 @@ import 'package:mvmnt_cli/features/addresses/presentation/widgets/saved_addresse
 import 'package:mvmnt_cli/ui/widgets/custom_app_bar.dart';
 
 class AddressSearchPage extends StatefulWidget {
-  final String title;
 
   const AddressSearchPage({super.key, required this.title});
+  final String title;
 
   @override
   State<AddressSearchPage> createState() => _AddressSearchPageState();
@@ -44,7 +44,7 @@ class _AddressSearchPageState extends State<AddressSearchPage> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
@@ -69,7 +69,7 @@ class _AddressSearchPageState extends State<AddressSearchPage> {
                   }
                 },
                 builder: (context, state) {
-                  bool loading = state.status == AddressSearchStatus.loading;
+                  var loading = state.status == AddressSearchStatus.loading;
 
                   if (state.addressSuggestions.isEmpty) {
                     return ListView(
@@ -96,8 +96,8 @@ class _AddressSearchPageState extends State<AddressSearchPage> {
                       return ListTile(
                         title: Text(suggestedAddress.mainText),
                         subtitle: Text(suggestedAddress.secondaryText),
-                        leading: Icon(Icons.location_on_outlined),
-                        trailing: Icon(Icons.chevron_right),
+                        leading: const Icon(Icons.location_on_outlined),
+                        trailing: const Icon(Icons.chevron_right),
                         onTap:
                             loading
                                 ? null

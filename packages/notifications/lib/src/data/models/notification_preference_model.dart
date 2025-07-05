@@ -3,6 +3,13 @@ import 'package:mvmnt_cli/features/notifications/domain/entities/notification_pr
 
 class NotificationPreferenceTopicModel
     extends NotificationPreferenceTopicEntity {
+
+  factory NotificationPreferenceTopicModel.fromJson(Map<String, dynamic> json) {
+    return NotificationPreferenceTopicModel(
+      name: json['name'] as String,
+      description: json['description'] as String,
+    );
+  }
   const NotificationPreferenceTopicModel({
     required super.name,
     required super.description,
@@ -24,13 +31,6 @@ class NotificationPreferenceTopicModel
     );
   }
 
-  factory NotificationPreferenceTopicModel.fromJson(Map<String, dynamic> json) {
-    return NotificationPreferenceTopicModel(
-      name: json['name'] as String,
-      description: json['description'] as String,
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {'name': name, 'description': description};
   }
@@ -38,6 +38,22 @@ class NotificationPreferenceTopicModel
 
 class NotificationPreferenceChannelModel
     extends NotificationPreferenceChannelEntity {
+
+  factory NotificationPreferenceChannelModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return NotificationPreferenceChannelModel(
+      type: NotificationChannel.values.firstWhere(
+        (e) => e.name == json['type'],
+        orElse:
+            () =>
+                throw ArgumentError(
+                  'Invalid NotificationChannel type: ${json['type']}',
+                ),
+      ),
+      status: json['status'] as bool,
+    );
+  }
   const NotificationPreferenceChannelModel({
     required super.type,
     required super.status,
@@ -56,22 +72,6 @@ class NotificationPreferenceChannelModel
     return NotificationPreferenceChannelEntity(type: type, status: status);
   }
 
-  factory NotificationPreferenceChannelModel.fromJson(
-    Map<String, dynamic> json,
-  ) {
-    return NotificationPreferenceChannelModel(
-      type: NotificationChannel.values.firstWhere(
-        (e) => e.name == json['type'],
-        orElse:
-            () =>
-                throw ArgumentError(
-                  'Invalid NotificationChannel type: ${json['type']}',
-                ),
-      ),
-      status: json['status'] as bool,
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {'type': type.name, 'status': status};
   }
@@ -79,10 +79,6 @@ class NotificationPreferenceChannelModel
 
 /// DTO for NotificationPreference
 class NotificationPreferenceModel extends NotificationPreferenceEntity {
-  final String id;
-  final NotificationPreferenceTopicModel topic;
-  final List<NotificationPreferenceChannelModel> channels;
-  final DateTime updatedAt;
 
   const NotificationPreferenceModel({
     required this.id,
@@ -109,6 +105,29 @@ class NotificationPreferenceModel extends NotificationPreferenceEntity {
     );
   }
 
+  /// Create from JSON map
+  factory NotificationPreferenceModel.fromJson(Map<String, dynamic> json) {
+    return NotificationPreferenceModel(
+      id: json['_id'] as String,
+      topic: NotificationPreferenceTopicModel.fromJson(
+        json['topic'] as Map<String, dynamic>,
+      ),
+      channels:
+          (json['channels'] as List)
+              .map(
+                (channelJson) => NotificationPreferenceChannelModel.fromJson(
+                  channelJson as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
+    );
+  }
+  final String id;
+  final NotificationPreferenceTopicModel topic;
+  final List<NotificationPreferenceChannelModel> channels;
+  final DateTime updatedAt;
+
   /// Convert model to entity
   NotificationPreferenceEntity toEntity() {
     return NotificationPreferenceEntity(
@@ -128,25 +147,6 @@ class NotificationPreferenceModel extends NotificationPreferenceEntity {
     } catch (_) {
       return null;
     }
-  }
-
-  /// Create from JSON map
-  factory NotificationPreferenceModel.fromJson(Map<String, dynamic> json) {
-    return NotificationPreferenceModel(
-      id: json['_id'] as String,
-      topic: NotificationPreferenceTopicModel.fromJson(
-        json['topic'] as Map<String, dynamic>,
-      ),
-      channels:
-          (json['channels'] as List)
-              .map(
-                (channelJson) => NotificationPreferenceChannelModel.fromJson(
-                  channelJson as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-    );
   }
 
   /// Convert to JSON map

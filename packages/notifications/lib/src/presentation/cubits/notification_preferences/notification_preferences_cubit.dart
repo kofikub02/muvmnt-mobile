@@ -6,13 +6,13 @@ import 'package:mvmnt_cli/features/notifications/domain/usecases/update_notifica
 import 'package:mvmnt_cli/features/notifications/presentation/cubits/notification_preferences/notification_preferences_state.dart';
 
 class NotificationPreferencesCubit extends Cubit<NotificationPreferencesState> {
-  final GetNotificationPreferencesUsecase getNotificationPreferencesUsecase;
-  final UpdateNotificationPreferenceUsecase updateNotificationPreferenceUsecase;
 
   NotificationPreferencesCubit({
     required this.getNotificationPreferencesUsecase,
     required this.updateNotificationPreferenceUsecase,
   }) : super(NotificationPreferencesState.initial());
+  final GetNotificationPreferencesUsecase getNotificationPreferencesUsecase;
+  final UpdateNotificationPreferenceUsecase updateNotificationPreferenceUsecase;
 
   Future<void> getPreferences() async {
     if (state.notificationPreferencesEntity.isNotEmpty) {

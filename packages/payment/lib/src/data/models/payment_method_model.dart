@@ -1,12 +1,24 @@
 import 'package:mvmnt_cli/features/payments/domain/entities/payment_method_entity.dart';
 
 class PaymentMethodModel extends PaymentMethodEntity {
+
+  // 🔁 JSON serialization
+  factory PaymentMethodModel.fromJson(Map<String, dynamic> json) {
+    return PaymentMethodModel(
+      id: json['id'],
+      name: json['name'],
+      meta: json['meta'],
+      icon: json['icon'],
+      type: PaymentMethodType.values.firstWhere(
+        (e) => e.name == json['type'],
+        orElse: () => PaymentMethodType.card,
+      ),
+    );
+  }
   const PaymentMethodModel({
     required super.id,
     required super.name,
-    super.meta,
-    required super.icon,
-    required super.type,
+    required super.icon, required super.type, super.meta,
   });
 
   // 🔁 Convert from entity
@@ -31,20 +43,6 @@ class PaymentMethodModel extends PaymentMethodEntity {
       meta: meta,
       icon: icon,
       type: PaymentMethodType.values[type.index],
-    );
-  }
-
-  // 🔁 JSON serialization
-  factory PaymentMethodModel.fromJson(Map<String, dynamic> json) {
-    return PaymentMethodModel(
-      id: json['id'],
-      name: json['name'],
-      meta: json['meta'],
-      icon: json['icon'],
-      type: PaymentMethodType.values.firstWhere(
-        (e) => e.name == json['type'],
-        orElse: () => PaymentMethodType.card,
-      ),
     );
   }
 

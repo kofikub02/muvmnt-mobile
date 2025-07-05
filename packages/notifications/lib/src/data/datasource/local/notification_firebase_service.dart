@@ -14,20 +14,20 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 class NotificationFirebaseService {
-  final Dio dio;
-  final FirebaseMessaging firebaseMessaging;
-  final FlutterLocalNotificationsPlugin localNotificationsPlugin;
-
-  bool _isFlutterLocalNotificationsInitialized = false;
 
   NotificationFirebaseService({
     required this.dio,
     required this.firebaseMessaging,
     required this.localNotificationsPlugin,
   });
+  final Dio dio;
+  final FirebaseMessaging firebaseMessaging;
+  final FlutterLocalNotificationsPlugin localNotificationsPlugin;
+
+  bool _isFlutterLocalNotificationsInitialized = false;
 
   Future<bool> requestNotificationPermission() async {
-    NotificationSettings settings = await firebaseMessaging.requestPermission(
+    var settings = await firebaseMessaging.requestPermission(
       announcement: true,
       badge: true,
       providesAppNotificationSettings: true,
@@ -52,7 +52,7 @@ class NotificationFirebaseService {
       return;
     }
     try {
-      await dio.post('/notifications/user-data', data: {"device_token", token});
+      await dio.post('/notifications/user-data', data: {'device_token', token});
 
       print('FCM token registered: $token');
     } catch (e) {
@@ -143,8 +143,8 @@ class NotificationFirebaseService {
   }
 
   Future<void> showNotification(RemoteMessage message) async {
-    RemoteNotification? notification = message.notification;
-    AndroidNotification? android = message.notification?.android;
+    final var notification = message.notification;
+    var android = message.notification?.android;
     if (notification != null && android != null) {
       await localNotificationsPlugin.show(
         notification.hashCode,

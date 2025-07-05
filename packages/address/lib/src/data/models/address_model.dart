@@ -15,36 +15,6 @@ enum AddressOriginTypeHive {
 
 @HiveType(typeId: 1)
 class AddressModel extends HiveObject {
-  @HiveField(0)
-  String id;
-  @HiveField(1)
-  String icon;
-  @HiveField(2)
-  String? label;
-  @HiveField(3)
-  String? buildingName;
-  @HiveField(4)
-  String? apartmentSuite;
-  @HiveField(5)
-  String? entryCode;
-  @HiveField(6)
-  String? instructions;
-  @HiveField(7)
-  String description;
-  @HiveField(8)
-  String mainText;
-  @HiveField(9)
-  String secondaryText;
-  @HiveField(10)
-  double lat;
-  @HiveField(11)
-  double lng;
-  @HiveField(12)
-  AddressOriginTypeHive origin;
-  @HiveField(13)
-  DateTime updatedAt;
-  @HiveField(14)
-  DateTime createdAt;
 
   AddressModel({
     required this.id,
@@ -87,26 +57,6 @@ class AddressModel extends HiveObject {
     );
   }
 
-  AddressEntity toEntity() {
-    return AddressEntity(
-      id: id,
-      icon: icon,
-      label: label,
-      buildingName: buildingName,
-      apartmentSuite: apartmentSuite,
-      entryCode: entryCode,
-      instructions: instructions,
-      description: description,
-      mainText: mainText,
-      secondaryText: secondaryText,
-      lat: lat,
-      lng: lng,
-      origin: AddressOriginType.values[origin.index],
-      updatedAt: updatedAt,
-      createdAt: createdAt,
-    );
-  }
-
   factory AddressModel.fromJson(Map<String, dynamic> json) {
     return AddressModel(
       id: json['_id'] ?? json['id'],
@@ -127,6 +77,56 @@ class AddressModel extends HiveObject {
       ),
       updatedAt: DateTime.parse(json['updatedAt']),
       createdAt: DateTime.parse(json['createdAt']),
+    );
+  }
+  @HiveField(0)
+  String id;
+  @HiveField(1)
+  String icon;
+  @HiveField(2)
+  String? label;
+  @HiveField(3)
+  String? buildingName;
+  @HiveField(4)
+  String? apartmentSuite;
+  @HiveField(5)
+  String? entryCode;
+  @HiveField(6)
+  String? instructions;
+  @HiveField(7)
+  String description;
+  @HiveField(8)
+  String mainText;
+  @HiveField(9)
+  String secondaryText;
+  @HiveField(10)
+  double lat;
+  @HiveField(11)
+  double lng;
+  @HiveField(12)
+  AddressOriginTypeHive origin;
+  @HiveField(13)
+  DateTime updatedAt;
+  @HiveField(14)
+  DateTime createdAt;
+
+  AddressEntity toEntity() {
+    return AddressEntity(
+      id: id,
+      icon: icon,
+      label: label,
+      buildingName: buildingName,
+      apartmentSuite: apartmentSuite,
+      entryCode: entryCode,
+      instructions: instructions,
+      description: description,
+      mainText: mainText,
+      secondaryText: secondaryText,
+      lat: lat,
+      lng: lng,
+      origin: AddressOriginType.values[origin.index],
+      updatedAt: updatedAt,
+      createdAt: createdAt,
     );
   }
 

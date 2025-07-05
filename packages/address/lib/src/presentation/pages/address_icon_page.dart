@@ -6,9 +6,9 @@ import 'package:mvmnt_cli/ui/widgets/svg_icon.dart';
 const icons = ['home', 'work', 'school', 'gym', 'heart'];
 
 class AddressIconPage extends StatefulWidget {
-  final String? existingIcon;
 
   const AddressIconPage({super.key, this.existingIcon});
+  final String? existingIcon;
 
   @override
   State<AddressIconPage> createState() => _AddressIconPageState();
@@ -42,7 +42,7 @@ class _AddressIconPageState extends State<AddressIconPage> {
         toReturn: widget.existingIcon,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12),
         child: GridView.builder(
           itemCount: icons.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -52,7 +52,7 @@ class _AddressIconPageState extends State<AddressIconPage> {
           ),
           itemBuilder: (context, index) {
             final iconName = icons[index];
-            bool selected =
+            var selected =
                 widget.existingIcon != null
                     ? widget.existingIcon == iconName
                     : false;
@@ -62,7 +62,7 @@ class _AddressIconPageState extends State<AddressIconPage> {
                 context.pop(iconName);
               },
               child: Container(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color:
                       selected
@@ -70,7 +70,7 @@ class _AddressIconPageState extends State<AddressIconPage> {
                             context,
                           ).colorScheme.primary.withOpacity(0.2)
                           : Colors.transparent,
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                 ),
                 child: SizedBox(
                   width: 16,

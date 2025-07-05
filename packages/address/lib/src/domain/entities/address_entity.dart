@@ -7,21 +7,6 @@ enum AddressOriginType { nearby, searched, labelled, unknown }
 //Icon to home
 
 class AddressEntity extends Equatable {
-  final String id;
-  final String icon;
-  final String? label;
-  final String? buildingName;
-  final String? apartmentSuite;
-  final String? entryCode;
-  final String? instructions;
-  final String description;
-  final String mainText;
-  final String secondaryText;
-  final double lat;
-  final double lng;
-  final AddressOriginType origin;
-  final DateTime updatedAt;
-  final DateTime createdAt;
 
   const AddressEntity({
     required this.id,
@@ -40,6 +25,21 @@ class AddressEntity extends Equatable {
     required this.updatedAt,
     required this.createdAt,
   });
+  final String id;
+  final String icon;
+  final String? label;
+  final String? buildingName;
+  final String? apartmentSuite;
+  final String? entryCode;
+  final String? instructions;
+  final String description;
+  final String mainText;
+  final String secondaryText;
+  final double lat;
+  final double lng;
+  final AddressOriginType origin;
+  final DateTime updatedAt;
+  final DateTime createdAt;
 
   AddressEntity copyWith({
     String? id,
@@ -81,16 +81,11 @@ class AddressEntity extends Equatable {
     return AddressEntity(
       id: getUniqueId(),
       icon: '',
-      label: null,
-      buildingName: null,
-      apartmentSuite: null,
-      entryCode: null,
-      instructions: null,
       description: '',
       mainText: '',
       secondaryText: '',
-      lat: 0.0,
-      lng: 0.0,
+      lat: 0,
+      lng: 0,
       origin: AddressOriginType.unknown,
       updatedAt: DateTime.now(),
       createdAt: DateTime.now(),

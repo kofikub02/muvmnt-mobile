@@ -217,13 +217,13 @@ class AuthFirebaseService {
   Future<void> signInWithGoogle() async {
     try {
       final GoogleSignIn signIn = GoogleSignIn.instance;
-      final GoogleSignInAccount? googleUser = await signIn.authenticate();
+      final GoogleSignInAccount googleUser = await signIn.authenticate();
       if (googleUser == null) {
         throw '';
       }
 
       final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+          googleUser.authentication;
       final credential = GoogleAuthProvider.credential(
         // accessToken: googleAuth.idToken,
         idToken: googleAuth.idToken,

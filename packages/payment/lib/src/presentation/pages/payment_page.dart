@@ -46,7 +46,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     );
                   },
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,13 +93,13 @@ class _PaymentPageState extends State<PaymentPage> {
                     );
                   },
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Divider(thickness: 0.2),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 PaymentCredits(),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
               ],
             ),
           ],

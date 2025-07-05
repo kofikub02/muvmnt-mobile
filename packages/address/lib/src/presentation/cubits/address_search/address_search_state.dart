@@ -5,11 +5,6 @@ import 'package:mvmnt_cli/features/addresses/domain/entities/address_prediction_
 enum AddressSearchStatus { initial, loading, success, error }
 
 class AddressSearchState extends Equatable {
-  final AddressSearchStatus status;
-  final List<AddressPredictionEntity> addressSuggestions;
-  final String query;
-  final AddressEntity? selectedAddress;
-  final String? errorMessage;
 
   const AddressSearchState({
     this.status = AddressSearchStatus.initial,
@@ -18,6 +13,11 @@ class AddressSearchState extends Equatable {
     this.errorMessage,
     this.selectedAddress,
   });
+  final AddressSearchStatus status;
+  final List<AddressPredictionEntity> addressSuggestions;
+  final String query;
+  final AddressEntity? selectedAddress;
+  final String? errorMessage;
 
   AddressSearchState copyWith({
     AddressSearchStatus? status,

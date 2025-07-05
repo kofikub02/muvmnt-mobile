@@ -12,7 +12,7 @@ class PaypalTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _PaypalWidget(key: Key('paypal_widget'));
+    return const _PaypalWidget(key: Key('paypal_widget'));
   }
 }
 
@@ -41,7 +41,7 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
             MaterialPageRoute(
               builder:
                   (_) => _PaypalWebviewVault(
-                    key: Key('paypalwebviewvault'),
+                    key: const Key('paypalwebviewvault'),
                     approvalUrl: state.approvalUrl!,
                   ),
             ),
@@ -55,9 +55,9 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
         }
       },
       builder: (context, state) {
-        bool loading = state.status == PaypalStatus.loading;
-        bool settingUp = state.status == PaypalStatus.settingUp;
-        bool hasMethod = state.methods.isNotEmpty;
+        final var loading = state.status == PaypalStatus.loading;
+        final var settingUp = state.status == PaypalStatus.settingUp;
+        final bool hasMethod = state.methods.isNotEmpty;
 
         if (hasMethod || loading) {
           return Container();
@@ -65,10 +65,10 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
 
         return ListTile(
           leading: SvgIcon(name: 'paypal', hasIntrinsic: true),
-          title: Text('Paypal'),
+          title: const Text('Paypal'),
           trailing:
               settingUp
-                  ? CircularProgressIndicator.adaptive()
+                  ? const CircularProgressIndicator.adaptive()
                   : SvgIcon(name: 'chevron-right'),
           onTap:
               loading || settingUp
@@ -91,7 +91,7 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
         context: context,
         builder:
             (context) => CupertinoAlertDialog(
-              title: Text(
+              title: const Text(
                 '"Muvmnt" wants to Use "paypal.com" to Sign in',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -99,7 +99,7 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'This allows the app and website to share information about you.',
                     textAlign: TextAlign.center,
@@ -110,14 +110,14 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
               actions: [
                 CupertinoDialogAction(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 CupertinoDialogAction(
                   onPressed: () {
                     onContinue();
                     Navigator.pop(context);
                   },
-                  child: Text('Continue'),
+                  child: const Text('Continue'),
                 ),
               ],
             ),
@@ -127,7 +127,7 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
         context: context,
         builder:
             (context) => AlertDialog(
-              title: Text(
+              title: const Text(
                 '"Muvmnt" wants to Use "paypal.com" to Sign in',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -135,7 +135,7 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'This allows the app and website to share information about you.',
                     textAlign: TextAlign.center,
@@ -146,14 +146,14 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 TextButton(
                   onPressed: () {
                     onContinue();
                     Navigator.pop(context);
                   },
-                  child: Text('Continue'),
+                  child: const Text('Continue'),
                 ),
               ],
             ),
@@ -163,9 +163,9 @@ class __PaypalWidgetState extends State<_PaypalWidget> {
 }
 
 class _PaypalWebviewVault extends StatefulWidget {
-  final String approvalUrl;
 
   const _PaypalWebviewVault({super.key, required this.approvalUrl});
+  final String approvalUrl;
 
   @override
   State<_PaypalWebviewVault> createState() => __PaypalWebviewVaultState();
@@ -173,7 +173,7 @@ class _PaypalWebviewVault extends StatefulWidget {
 
 class __PaypalWebviewVaultState extends State<_PaypalWebviewVault> {
   late final WebViewController _controller;
-  var loadingPagePercentage = 0;
+  int loadingPagePercentage = 0;
 
   @override
   void initState() {
@@ -229,7 +229,7 @@ class __PaypalWebviewVaultState extends State<_PaypalWebviewVault> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        shape: Border(bottom: BorderSide.none),
+        shape: const Border(),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context, false);
@@ -237,7 +237,7 @@ class __PaypalWebviewVaultState extends State<_PaypalWebviewVault> {
           icon: SvgIcon(name: 'x'),
         ),
         centerTitle: true,
-        title: Text('paypal.com'),
+        title: const Text('paypal.com'),
         actions: [
           IconButton(
             onPressed: () async {

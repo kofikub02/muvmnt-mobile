@@ -9,9 +9,9 @@ import 'package:mvmnt_cli/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:mvmnt_cli/ui/widgets/info_card.dart';
 
 class AddressLabelPage extends StatefulWidget {
-  final AddressEntity address;
 
   const AddressLabelPage({super.key, required this.address});
+  final AddressEntity address;
 
   @override
   State<AddressLabelPage> createState() => _AddressLabelPageState();
@@ -53,7 +53,7 @@ class _AddressLabelPageState extends State<AddressLabelPage> {
                       context.pop();
                     }
                     : null,
-            child: Text('Save'),
+            child: const Text('Save'),
           ),
         ),
       ),
@@ -69,7 +69,7 @@ class _AddressLabelPageState extends State<AddressLabelPage> {
                 }
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             InfoCard(
               info:
                   'Your labeled addresses are used to personalize your experience across Muvmnt. Only you can see the label and you can unset it anytime',

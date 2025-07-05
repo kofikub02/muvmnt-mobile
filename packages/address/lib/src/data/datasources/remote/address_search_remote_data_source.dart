@@ -3,14 +3,14 @@ import 'package:mvmnt_cli/features/location/data/models/geo_latlng_model.dart';
 import 'package:mvmnt_cli/features/addresses/data/models/address_prediction_model.dart';
 
 class AddressSearchRemoteDataSource {
+
+  AddressSearchRemoteDataSource({required this.dio});
   final Dio dio;
   CancelToken? _cancelToken;
 
-  AddressSearchRemoteDataSource({required this.dio});
-
   Future<GeoLatLngModel> getAddressGeocode(String address) async {
-    var encodedAddress = Uri.encodeComponent(address);
-    var response = await dio.get(
+    final encodedAddress = Uri.encodeComponent(address);
+    final response = await dio.get(
       '/addresses/search/geocode?address=$encodedAddress',
     );
 
@@ -24,7 +24,7 @@ class AddressSearchRemoteDataSource {
   }
 
   Future<String> getGeocodeAddress(GeoLatLngModel latlng) async {
-    var response = await dio.get(
+    final response = await dio.get(
       '/addresses/search/convert?lat=${latlng.lat}&lng=${latlng.lng}',
     );
 
@@ -41,14 +41,14 @@ class AddressSearchRemoteDataSource {
     String query,
     String? country,
   ) async {
-    _cancelToken?.cancel("Cancelled due to new request");
+    _cancelToken?.cancel('Cancelled due to new request');
     _cancelToken = CancelToken();
 
-    String countryString =
+    var countryString =
         country != null && country.isNotEmpty ? '&country=$country' : '';
 
     try {
-      var response = await dio.get(
+      final response = await dio.get(
         '/addresses/search/autocomplete?query=$query$countryString',
         cancelToken: _cancelToken,
       );
