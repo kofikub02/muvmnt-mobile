@@ -5,9 +5,13 @@ environment:
   sdk: "^3.6.0"
 
 workspace:
-  - packages/muvmnt_core
-  - packages/muvmnt_ui
-  - packages/muvmnt_features
+  - packages/core
+  - packages/ui
+  - packages/address
+  - packages/auth
+  - packages/notifications
+  - packages/payment
+  - packages/services
   - apps/shopper_app
   - apps/vendor_app
   - apps/muver_app
