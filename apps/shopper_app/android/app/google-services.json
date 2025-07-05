@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "998122439825",
+    "project_id": "mvmnt-cli",
+    "storage_bucket": "mvmnt-cli.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998122439825:android:3fa5351e05273cce47ab30",
+        "android_client_info": {
+          "package_name": "com.example.mvmnt_cli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998122439825-6pggopm3cundm3odmafhq1qn3q91chd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZw7Jr8sgQqZmrcNPWeJiPBBtVpwQ596Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998122439825-6pggopm3cundm3odmafhq1qn3q91chd6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "998122439825-mho30s83pgn9d0i8g1827up5lbbrejk9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mvmntCli"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998122439825:android:c5532db3953e032147ab30",
+        "android_client_info": {
+          "package_name": "com.muvmnt.shopper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998122439825-6pggopm3cundm3odmafhq1qn3q91chd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZw7Jr8sgQqZmrcNPWeJiPBBtVpwQ596Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998122439825-6pggopm3cundm3odmafhq1qn3q91chd6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "998122439825-mho30s83pgn9d0i8g1827up5lbbrejk9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mvmntCli"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

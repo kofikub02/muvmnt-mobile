@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "811359592952",
+    "project_id": "muvmnt-pro",
+    "storage_bucket": "muvmnt-pro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811359592952:android:5ac783a488b3056647f60d",
+        "android_client_info": {
+          "package_name": "com.example.muvmnt_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgtOzsFws_E29BYep4BUdxs3DNhUbgB-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811359592952:android:c77299b23461962e47f60d",
+        "android_client_info": {
+          "package_name": "com.muvmnt.muver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgtOzsFws_E29BYep4BUdxs3DNhUbgB-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

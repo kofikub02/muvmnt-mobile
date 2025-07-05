@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "413093278532",
+    "project_id": "muvmnt-bus",
+    "storage_bucket": "muvmnt-bus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413093278532:android:766156bcdfe7d5dc071d11",
+        "android_client_info": {
+          "package_name": "com.example.muvmnt_bus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413093278532-jds9hneltmdf8efh8cogoeao7q97udci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWH6HEkjbBnfsEbOF3cWMsxaIvmYjck5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413093278532-jds9hneltmdf8efh8cogoeao7q97udci.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "413093278532-musqn3j5gpl2jsn4o134e08r6ga2oci9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.muvmntBus"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413093278532:android:6004a73ef2a2bdb1071d11",
+        "android_client_info": {
+          "package_name": "com.muvmnt.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413093278532-jds9hneltmdf8efh8cogoeao7q97udci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWH6HEkjbBnfsEbOF3cWMsxaIvmYjck5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413093278532-jds9hneltmdf8efh8cogoeao7q97udci.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "413093278532-musqn3j5gpl2jsn4o134e08r6ga2oci9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.muvmntBus"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
