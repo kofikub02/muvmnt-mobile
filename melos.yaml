@@ -1,0 +1,15 @@
+name: muvmnt_mobile_mono
+
+packages:
+  - apps/*
+  - packages/*
+
+scripts:
+  analyze:
+    exec: dart analyze .
+  generate-run-config:
+    run: bash generate_app_run_config.sh
+
+command:
+  bootstrap:
+    runPubGetInParallel: false
