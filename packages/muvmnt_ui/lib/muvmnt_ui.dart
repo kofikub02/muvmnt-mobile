@@ -1,4 +1,4 @@
 /// UI Kit package
 library;
 
-export 'src/ui.dart';
+export 'src/muvmnt_ui.dart';

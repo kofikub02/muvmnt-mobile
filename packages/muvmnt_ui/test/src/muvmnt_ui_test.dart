@@ -2,12 +2,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ui/ui.dart';
+import 'package:muvmnt_ui/muvmnt_ui.dart';
 
 void main() {
-  group('Ui', () {
+  group('MuvmntUi', () {
     test('can be instantiated', () {
-      expect(Ui(), isNotNull);
+      expect(MuvmntUi(), isNotNull);
     });
   });
 }

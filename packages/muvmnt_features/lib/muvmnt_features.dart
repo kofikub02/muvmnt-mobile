@@ -1,4 +1,4 @@
 /// Features Kit package
 library;
 
-export 'src/features.dart';
+export 'src/muvmnt_features.dart';
