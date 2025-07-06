@@ -7,11 +7,12 @@ environment:
 workspace:
   - packages/muvmnt_core
   - packages/muvmnt_ui
-  - packages/address
+  - packages/muvmnt_services
+  - packages/muvmnt_address
   - packages/muvmnt_auth
-  - packages/notifications
-  - packages/payment
-  - packages/services
+  - packages/muvmnt_notifications
+  - packages/muvmnt_payment
+
   - apps/shopper_app
   - apps/vendor_app
   - apps/muver_app

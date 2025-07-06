@@ -1,0 +1,23 @@
+name: muvmnt_services
+description: Services Kit package
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.8.0
+  flutter: ^3.32.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_analytics: ^11.5.2
+  firebase_remote_config: ^5.4.7
+  firebase_crashlytics: ^4.3.9
+  go_router: ^16.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  very_good_analysis: ^9.0.0

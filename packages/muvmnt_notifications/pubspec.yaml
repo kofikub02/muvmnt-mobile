@@ -1,0 +1,24 @@
+name: muvmnt_notifications
+description: Notifications Kit package
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.8.0
+  flutter: ^3.32.0
+
+dependencies:
+  dio: ^5.8.0+1
+  firebase_messaging: ^15.2.9
+  flutter:
+    sdk: flutter
+  muvmnt_services: ^0.1.0+1
+  flutter_local_notifications: ^19.3.0
+  timezone: ^0.10.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  very_good_analysis: ^9.0.0
