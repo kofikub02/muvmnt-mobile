@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/annonysam/Developer/muvmnt/mobile/mvmnt_cli/build/ios/Debug-iphoneos/Runner.app/Runner'
+relocations:     []
+...

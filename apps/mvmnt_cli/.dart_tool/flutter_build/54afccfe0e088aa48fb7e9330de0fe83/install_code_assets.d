@@ -1,0 +1,1 @@
+ /Users/annonysam/Developer/muvmnt/mobile/mvmnt_cli/.dart_tool/flutter_build/54afccfe0e088aa48fb7e9330de0fe83/native_assets.json: 
