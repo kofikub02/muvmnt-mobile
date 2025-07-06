@@ -1,5 +1,5 @@
-import 'package:mvmnt_cli/core/resources/data_state.dart';
-import 'package:mvmnt_cli/features/auth/domain/entities/auth_entity.dart';
+import 'package:auth/src/domain/entities/auth_entity.dart';
+
 
 abstract class AuthRepository {
   Stream<DataState<AuthEntity?>> get authChanges;
