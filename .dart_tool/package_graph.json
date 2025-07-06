@@ -1,8 +1,8 @@
 {
   "roots": [
     "address",
-    "auth",
     "muver_app",
+    "muvmnt_auth",
     "muvmnt_core",
     "muvmnt_mobile_mono",
     "muvmnt_ui",
@@ -68,15 +68,19 @@
       ]
     },
     {
-      "name": "auth",
+      "name": "muvmnt_auth",
       "version": "0.1.0+1",
       "dependencies": [
         "crypto",
+        "dio",
         "equatable",
         "firebase_auth",
         "flutter",
+        "flutter_bloc",
         "flutter_facebook_auth",
         "google_sign_in",
+        "muvmnt_core",
+        "muvmnt_ui",
         "sign_in_with_apple",
         "uuid"
       ],
@@ -322,6 +326,18 @@
       ]
     },
     {
+      "name": "dio",
+      "version": "5.8.0+1",
+      "dependencies": [
+        "async",
+        "collection",
+        "dio_web_adapter",
+        "http_parser",
+        "meta",
+        "path"
+      ]
+    },
+    {
       "name": "equatable",
       "version": "2.0.7",
       "dependencies": [
@@ -453,18 +469,6 @@
         "archive",
         "meta",
         "xml"
-      ]
-    },
-    {
-      "name": "dio",
-      "version": "5.8.0+1",
-      "dependencies": [
-        "async",
-        "collection",
-        "dio_web_adapter",
-        "http_parser",
-        "meta",
-        "path"
       ]
     },
     {
@@ -797,6 +801,26 @@
       ]
     },
     {
+      "name": "dio_web_adapter",
+      "version": "2.1.1",
+      "dependencies": [
+        "dio",
+        "http_parser",
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
       "name": "fixnum",
       "version": "1.1.1",
       "dependencies": []
@@ -1120,26 +1144,6 @@
         "crypto",
         "path",
         "posix"
-      ]
-    },
-    {
-      "name": "dio_web_adapter",
-      "version": "2.1.1",
-      "dependencies": [
-        "dio",
-        "http_parser",
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "http_parser",
-      "version": "4.1.2",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner",
-        "typed_data"
       ]
     },
     {

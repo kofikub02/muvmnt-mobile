@@ -5,10 +5,10 @@ environment:
   sdk: "^3.8.0"
 
 workspace:
-  - packages/core
-  - packages/ui
+  - packages/muvmnt_core
+  - packages/muvmnt_ui
   - packages/address
-  - packages/auth
+  - packages/muvmnt_auth
   - packages/notifications
   - packages/payment
   - packages/services

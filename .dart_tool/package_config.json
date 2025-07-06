@@ -987,13 +987,13 @@
     },
     {
       "name": "muvmnt_core",
-      "rootUri": "../packages/core",
+      "rootUri": "../packages/muvmnt_core",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
     {
       "name": "muvmnt_ui",
-      "rootUri": "../packages/ui",
+      "rootUri": "../packages/muvmnt_ui",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
@@ -1004,8 +1004,8 @@
       "languageVersion": "3.8"
     },
     {
-      "name": "auth",
-      "rootUri": "../packages/auth",
+      "name": "muvmnt_auth",
+      "rootUri": "../packages/muvmnt_auth",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
